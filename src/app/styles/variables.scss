@@ -1,0 +1,50 @@
+:root {
+    /* ========= BRAND ========= */
+    --color-primary: #f54900;
+
+    /* ========= TEXT ========= */
+    --color-text-main: #101828;
+    --color-text-header: #364153;
+    --color-text-secondary: #4a5565;
+
+    --color-text-white: #fff;
+    --color-text-white-muted: #d1d5dc;
+
+    /* ========= UI ========= */
+    --color-border: #d1d5dc;
+    --color-placeholder: #0a0a0a80;
+
+    /* input on dark background */
+    --color-input-dark: #364153;
+
+    /* ========= STATUS ========= */
+    --color-danger: #e7000b;
+
+    /* ========= RATING ========= */
+    --color-star: #fdc700;
+
+    /* ========= BACKGROUND ========= */
+    --color-bg: #fff;
+    --color-footer-bg: #101828;
+
+    /* ========= TYPOGRAPHY ========= */
+    --font-family-base:
+        ui-sans-serif, system-ui, -apple-system, segoe ui, roboto, sans-serif;
+
+    --font-size-base: 16px;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* ========= LAYOUT ========= */
+    --container-width: 1280px;
+
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.25s ease;
+}

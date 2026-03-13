@@ -1,5 +1,14 @@
+import { Suspense } from 'react';
+import { AppRouter } from '@/app/router';
+
 function App() {
-    return <></>;
+  return (
+    <>
+      <Suspense fallback={<></>}>
+        <AppRouter />
+      </Suspense>
+    </>
+  );
 }
 
-export default App;
+export { App };

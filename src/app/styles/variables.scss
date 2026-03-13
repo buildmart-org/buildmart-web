@@ -1,50 +1,54 @@
 :root {
-    /* ========= BRAND ========= */
-    --color-primary: #f54900;
+  /* ========= COLORS ========= */
 
-    /* ========= TEXT ========= */
-    --color-text-main: #101828;
-    --color-text-header: #364153;
-    --color-text-secondary: #4a5565;
+  /* ========= BRAND ========= */
+  --color-primary: #f54900;
+  --color-primary-hover: #ca3500;
+  --color-secondary: #101828;
 
-    --color-text-white: #fff;
-    --color-text-white-muted: #d1d5dc;
+  /* ========= TEXT ========= */
+  --color-text-main: #101828;
+  --color-text-header: #364153;
+  --color-text-secondary: #4a5565;
 
-    /* ========= UI ========= */
-    --color-border: #d1d5dc;
-    --color-placeholder: #0a0a0a80;
+  --color-text-white: #fff;
+  --color-text-white-muted: #d1d5dc;
 
-    /* input on dark background */
-    --color-input-dark: #364153;
+  /* ========= UI ========= */
+  --color-border: #d1d5dc;
+  --color-placeholder: #0a0a0a80;
 
-    /* ========= STATUS ========= */
-    --color-danger: #e7000b;
+  /* input on dark background */
+  --color-input-dark: #364153;
 
-    /* ========= RATING ========= */
-    --color-star: #fdc700;
+  /* ========= STATUS ========= */
+  --color-danger: #e7000b;
 
-    /* ========= BACKGROUND ========= */
-    --color-bg: #fff;
-    --color-footer-bg: #101828;
+  /* ========= RATING ========= */
+  --color-star: #fdc700;
 
-    /* ========= TYPOGRAPHY ========= */
-    --font-family-base:
-        ui-sans-serif, system-ui, -apple-system, segoe ui, roboto, sans-serif;
+  /* ========= BACKGROUND ========= */
+  --color-bg: #fff;
+  --color-footer-bg: #101828;
 
-    --font-size-base: 16px;
+  /* ========= TYPOGRAPHY ========= */
+  --font-family-base:
+    ui-sans-serif, system-ui, -apple-system, segoe ui, roboto, sans-serif;
 
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
+  --font-size-base: 16px;
 
-    /* ========= LAYOUT ========= */
-    --container-width: 1280px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-    --radius-sm: 6px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
+  /* ========= LAYOUT ========= */
+  --container-width: 1280px;
 
-    --transition-fast: 0.15s ease;
-    --transition-base: 0.25s ease;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
 }

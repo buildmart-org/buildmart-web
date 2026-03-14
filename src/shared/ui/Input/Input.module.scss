@@ -52,7 +52,7 @@
   border: none;
   outline: none;
   background: transparent;
-  font-size: var(--font-size-md); // <-- используем существующую переменную
+  font-size: var(--font-size-md);
   line-height: 1.2;
 
   &::placeholder {

@@ -6,35 +6,37 @@ type ButtonTheme =
   | 'primary'
   | 'primary-outline'
   | 'secondary'
-  | 'secondary-outline';
+  | 'secondary-outline'
+  | 'ghost';
 
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
+  Icon?: ReactNode;
   className?: string;
   theme?: ButtonTheme;
   size?: ButtonSize;
 }
 
-export const Button = (props: ButtonProps) => {
-  const {
-    children,
-    className,
-    theme = 'primary',
-    size = 'md',
-    disabled = false,
-    ...rest
-  } = props;
-
+export const Button = ({
+  children,
+  Icon,
+  className,
+  theme = 'primary',
+  size = 'md',
+  disabled = false,
+  ...rest
+}: ButtonProps) => {
   return (
     <button
-      className={clsx(className, styles.button, styles[theme], styles[size], {
+      className={clsx(styles.button, styles[theme], styles[size], className, {
         [styles.disabled]: disabled,
       })}
       disabled={disabled}
       {...rest}
     >
+      {Icon && <span className={styles.iconWrapper}>{Icon}</span>}
       {children}
     </button>
   );

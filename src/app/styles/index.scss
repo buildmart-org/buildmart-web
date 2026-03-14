@@ -1,3 +1,5 @@
-@import './reset';
-@import './variables';
-@import './globals';
+@use './reset';
+@use './colors';
+@use './typography';
+@use './ui';
+@use './globals';

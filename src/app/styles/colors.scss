@@ -1,0 +1,35 @@
+:root {
+  /* BRAND */
+  --color-primary: #f54900;
+  --color-primary-hover: #ca3500;
+  --color-primary-ghost: #f5490014;
+
+  /* TEXT */
+  --color-text-main: #101828;
+  --color-text-header: #364153;
+  --color-text-secondary: #4a5565;
+
+  --color-text-white: #fff;
+  --color-text-white-muted: #d1d5dc;
+
+  /* BACKGROUND */
+  --color-bg: #fff;
+  --color-bg-muted: #f6f6f6;
+  --color-footer-bg: #101828;
+
+  /* ICON */
+  --color-icon: #4a5565;
+  --color-icon-hover: var(--color-primary);
+
+  /* STATES */
+  --color-danger: #e7000b;
+  --color-danger-bg: #fff1f2;
+
+  --color-star: #fdc700;
+
+  /* BORDER */
+  --color-border: #d1d5dc;
+
+  /* PLACEHOLDER */
+  --color-placeholder: #0a0a0a80;
+}

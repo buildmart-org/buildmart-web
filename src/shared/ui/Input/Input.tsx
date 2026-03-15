@@ -9,6 +9,7 @@ import styles from './Input.module.scss';
 import clsx from 'clsx';
 
 type HTMLInputType = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>;
+type InputThemeType = 'dark';
 
 interface InputProps extends HTMLInputType {
   className?: string;
@@ -17,6 +18,7 @@ interface InputProps extends HTMLInputType {
   onChange?: (value: string) => void;
   disabled?: boolean;
   type?: string;
+  theme?: InputThemeType;
 }
 
 export const Input = (props: InputProps) => {
@@ -28,6 +30,7 @@ export const Input = (props: InputProps) => {
     value,
     onChange,
     disabled = false,
+    theme = '',
     type = 'text',
     ...rest
   } = props;
@@ -42,7 +45,7 @@ export const Input = (props: InputProps) => {
 
   return (
     <div
-      className={clsx(styles.inputContainer, className, {
+      className={clsx(styles.inputContainer, styles[theme], className, {
         [styles.disabled]: disabled,
         [styles.focus]: focus,
       })}
@@ -56,7 +59,9 @@ export const Input = (props: InputProps) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         type={type}
-        className={clsx(styles.input, { [styles.disabled]: disabled })}
+        className={clsx(styles.input, {
+          [styles.disabled]: disabled,
+        })}
       />
     </div>
   );

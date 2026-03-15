@@ -8,10 +8,22 @@
   --container-width: 1320px;
 
   /* INPUT */
+
   --input-bg: #fff;
   --input-border: var(--color-border);
   --input-border-focus: var(--color-primary);
+  --input-placeholder: #9ca3af;
+  --input-text: var(--color-text-main);
   --input-bg-disabled: #f3f3f3;
+
+  /* DARK INPUT */
+
+  --input-dark-bg: #1e2939;
+  --input-dark-border: #364153;
+  --input-dark-border-focus: var(--color-primary);
+  --input-dark-placeholder: #9ca3af;
+  --input-dark-text: #fff;
+  --input-dark-bg-disabled: #243042;
 
   /* BUTTON */
   --button-primary-bg: var(--color-primary);

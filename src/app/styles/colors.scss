@@ -17,6 +17,9 @@
   --color-bg-muted: #f6f6f6;
   --color-footer-bg: #101828;
 
+  /* SEPARATOR */
+  --footer-separator: rgb(255 255 255 / 10%);
+
   /* ICON */
   --color-icon: #4a5565;
   --color-icon-hover: var(--color-primary);
@@ -29,6 +32,7 @@
 
   /* BORDER */
   --color-border: #d1d5dc;
+  --color-border-muted: #1e2939;
 
   /* PLACEHOLDER */
   --color-placeholder: #0a0a0a80;

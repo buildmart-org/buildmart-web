@@ -14,7 +14,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className="container">
-        <div className={clsx(styles.wrapper, 'container')}>
+        <div className={clsx(styles.wrapper)}>
           {/* Logo */}
           <Link to={routePaths['']} className={styles.logo}>
             <Logo className={styles.logoIcon} />

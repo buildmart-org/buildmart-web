@@ -7,7 +7,7 @@ import { AboutPage } from '@/pages/About';
 import { CartPage } from '@/pages/Cart';
 import { ProductPage } from '@/pages/Product';
 
-export const routeConfig: RouteProps[] = [
+export const routesConfig: RouteProps[] = [
   {
     path: routePaths[AppRoutes.HOME],
     element: <ProductsPage />,

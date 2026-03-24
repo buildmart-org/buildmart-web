@@ -1,4 +1,5 @@
 import { routePaths } from '@/shared/constants';
-import { routeConfig } from '@/shared/config/router/routerConfig.tsx';
+import { routesConfig } from '@/shared/config/router/routerConfig.tsx';
+import { env } from '@/shared/config/env/env.ts';
 
-export { routePaths, routeConfig };
+export { routePaths, routesConfig, env };

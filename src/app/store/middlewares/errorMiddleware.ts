@@ -1,11 +1,19 @@
 import { isRejectedWithValue, type Middleware } from '@reduxjs/toolkit';
-import { extractErrorMessage } from '@/shared/lib/errors/extractErrorMessage';
+import { extractErrorMessage, logger } from '@/shared/lib';
 
 export const errorMiddleware: Middleware = () => (next) => (action) => {
   if (isRejectedWithValue(action)) {
-    const message = extractErrorMessage(action.payload);
+    const error = action.payload as unknown;
+    const message = extractErrorMessage(error);
 
-    console.error(`ERROR: ${message}`);
+    logger.error({
+      scope: 'API',
+      message,
+      error,
+      meta: {
+        type: action.type,
+      },
+    });
   }
 
   return next(action);

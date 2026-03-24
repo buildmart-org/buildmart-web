@@ -1,13 +1,5 @@
-import { Header } from '@/widgets/Header';
-import { Footer } from '@/widgets/Footer';
-
 export const ProductsPage = () => {
-  return (
-    <>
-      <Header />
-      <Footer />
-    </>
-  );
+  return <>PRODUCTS PAGE</>;
 };
 
 export default ProductsPage;

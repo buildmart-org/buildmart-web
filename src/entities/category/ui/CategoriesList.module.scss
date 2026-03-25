@@ -1,0 +1,19 @@
+$gap: 24px;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $gap;
+  margin-top: $gap;
+  width: 100%;
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  color: var(--color-danger);
+
+  button {
+    margin-top: 16px;
+  }
+}

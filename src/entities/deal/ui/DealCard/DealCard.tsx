@@ -1,4 +1,3 @@
-// buildmart-web/src/entities/deal/ui/DealCard.tsx
 import styles from './DealCard.module.scss';
 import type { Deal } from '@/entities/deal';
 

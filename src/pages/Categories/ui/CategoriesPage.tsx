@@ -1,4 +1,4 @@
-import { CategoriesList } from '@/entities/category/ui/CategoriesList';
+import { CategoriesList } from '@/entities/category/ui/CategoriesList/CategoriesList.tsx';
 import styles from './CategoriesPage.module.scss';
 
 export const CategoriesPage = () => {

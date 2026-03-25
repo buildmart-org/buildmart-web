@@ -1,4 +1,4 @@
-import { DealsList } from '@/entities/deal/ui/DealsList';
+import { DealsList } from '@/entities/deal/ui/DealsList/DealsList.tsx';
 import styles from './DealsPage.module.scss';
 
 export const DealsPage = () => {

@@ -1,8 +1,8 @@
 import { useGetCategoriesQuery } from '@/entities/category';
-import { CategoryCard } from './CategoryCard';
+import { CategoryCard } from '../CategoryCard/CategoryCard.tsx';
 import { ErrorBlock } from '@/shared/ui';
 import styles from './CategoriesList.module.scss';
-import { CategorySkeleton } from '@/entities/category/ui/CategorySkeleton.tsx';
+import { CategoriesSkeleton } from '@/entities/category/ui/CategoriesSkeleton/CategoriesSkeleton.tsx';
 
 export const CategoriesList = () => {
   const {
@@ -16,7 +16,7 @@ export const CategoriesList = () => {
     return (
       <div className={styles.grid}>
         {Array.from({ length: 8 }).map((_, i) => (
-          <CategorySkeleton key={i} />
+          <CategoriesSkeleton key={i} />
         ))}
       </div>
     );

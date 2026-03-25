@@ -1,0 +1,14 @@
+$gap: 24px;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  margin-top: $gap;
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  color: var(--color-danger);
+}

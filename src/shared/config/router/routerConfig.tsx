@@ -1,11 +1,12 @@
 import type { RouteProps } from 'react-router';
-import { AppRoutes, routePaths } from '@/shared/constants';
 import { ProductsPage } from '@/pages/Products';
 import { CategoriesPage } from '@/pages/Categories';
 import { DealsPage } from '@/pages/Deals';
 import { AboutPage } from '@/pages/About';
 import { CartPage } from '@/pages/Cart';
 import { ProductPage } from '@/pages/Product';
+import { routePaths } from '@/shared/config';
+import { AppRoutes } from '@/shared/config/router/routerPaths.ts';
 
 export const routesConfig: RouteProps[] = [
   {

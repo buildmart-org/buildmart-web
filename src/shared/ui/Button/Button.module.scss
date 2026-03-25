@@ -53,6 +53,11 @@
   cursor: not-allowed;
 }
 
+.xs {
+  padding: 4px 8px;
+  font-size: var(--font-size-xs);
+}
+
 .sm {
   padding: 6px 12px;
   font-size: var(--font-size-xs);

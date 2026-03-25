@@ -73,3 +73,14 @@ a:hover {
   background: var(--color-primary);
   color: white;
 }
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--load-card-color) 0%,
+    var(--load-highlight-color) 50%,
+    var(--load-card-color) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.2s ease-in-out infinite;
+}

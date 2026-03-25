@@ -1,0 +1,28 @@
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--load-card-color) 0%,
+    var(--load-highlight-color) 20%,
+    var(--load-card-color) 40%,
+    var(--load-card-color) 100%
+  );
+
+  /* Увеличиваем размер фона, чтобы градиент "растянулся" и стал мягче */
+  background-size: 400% 100%;
+
+  /* ease-in-out дает то самое плавное "перемигивание" */
+  animation: shimmer 2.5s ease-in-out infinite;
+  border-radius: 8px;
+
+  // border: 1px solid #222; /* Легкая граница, чтобы карточка не сливалась с фоном */
+}

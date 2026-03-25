@@ -1,25 +1,21 @@
 import { isRejectedWithValue, type Middleware } from '@reduxjs/toolkit';
 import { extractErrorMessage, logger } from '@/shared/lib';
-import { useToast } from '@/shared/config';
+import { showToast } from '@/shared/ui/Toast/lib/toastService.ts';
 
 export const errorMiddleware: Middleware = () => (next) => (action) => {
-  const { open } = useToast();
-
   if (isRejectedWithValue(action)) {
     const error = action.payload as unknown;
     const message = extractErrorMessage(error);
 
     // toast
-    open(message);
+    showToast(message);
 
     // log
     logger.error({
       scope: 'API',
       message,
       error,
-      meta: {
-        type: action.type,
-      },
+      meta: { type: action.type },
     });
   }
 

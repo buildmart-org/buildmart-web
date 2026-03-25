@@ -1,10 +1,13 @@
 import { baseAPI } from '@/shared/api';
 import { unwrap } from '@/shared/lib/api/unwrap.ts';
-import type { Product } from '@/entities/product/model/types/types.ts';
+import type {
+  Product,
+  Products,
+} from '@/entities/product/model/types/types.ts';
 
 export const productApi = baseAPI.injectEndpoints({
   endpoints: (builder) => ({
-    getProducts: builder.query<Product[], void>({
+    getProducts: builder.query<Products, void>({
       query: () => '/products',
       transformResponse: unwrap,
     }),

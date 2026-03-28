@@ -1,7 +1,6 @@
-import { HorizontalCarousel } from '@/shared/ui/HorizontalCarousel';
 import type { LayoutMode } from '@/widgets/DataLayout';
-import { VerticalList } from '@/shared/ui/VerticalList/VerticalList.tsx';
-import { Grid } from '@/shared/ui';
+
+import { Grid, HorizontalCarousel, VerticalList } from '@/shared/ui/';
 
 interface DataLayoutProps {
   children: React.ReactNode;

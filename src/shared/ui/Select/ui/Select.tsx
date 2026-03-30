@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './Select.module.scss';
 import type { SelectOption } from '@/shared/ui/Select/model/types.ts';
 import { Button } from '@/shared/ui';
-
+import ChevronDownIcon from '@/shared/assets/icons/ChevronDown.svg?react';
 interface SelectProps<T extends string> {
   value: T;
   options: SelectOption<T>[];
@@ -42,6 +42,10 @@ export const Select = <T extends string>({
       >
         {selected?.label ?? placeholder}
       </Button>
+
+      <span className={styles.chevron}>
+        <ChevronDownIcon />
+      </span>
 
       {open && (
         <div className={styles.dropdown}>

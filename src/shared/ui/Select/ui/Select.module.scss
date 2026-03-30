@@ -7,6 +7,7 @@
 
 .wrapper button {
   width: 100%;
+  padding-right: 36px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -37,4 +38,24 @@
   &:hover {
     background: var(--button-secondary-outline-hover);
   }
+}
+
+.chevron {
+  color: var(--color-text-main);
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+}
+
+.wrapper.open .chevron {
+  transform: translateY(-50%) rotate(180deg);
 }

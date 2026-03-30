@@ -1,6 +1,6 @@
 import type { Product } from '@/entities/product';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@/shared/ui';
+import { Button, Rating } from '@/shared/ui';
 import CartIcon from '@/shared/assets/icons/Cart.svg?react';
 import styles from './ProductCard.module.scss';
 
@@ -30,16 +30,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
         {/* RATING */}
         <div className={styles.rating}>
-          {Array.from({ length: 5 }).map((_, i) => (
-            <span
-              key={i}
-              className={
-                i < Math.round(product.rating) ? styles.starFilled : styles.star
-              }
-            >
-              ★
-            </span>
-          ))}
+          <Rating value={product.rating} />
           <span className={styles.ratingValue}>({product.rating})</span>
         </div>
 

@@ -1,6 +1,7 @@
 import type { Category } from '@/entities/category';
 import type { PaginationMeta } from '@/shared/api/types.ts';
 import { sortOptions } from '@/entities/product';
+import type { File } from '@/entities/file';
 
 export interface Product {
   id: string;
@@ -10,7 +11,7 @@ export interface Product {
   priceOld: number | null;
   rating: number;
   category: Category;
-  file: string;
+  files: File[];
 }
 
 export interface Products {

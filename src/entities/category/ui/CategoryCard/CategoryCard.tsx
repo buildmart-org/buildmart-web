@@ -12,7 +12,7 @@ export const CategoryCard = (props: CategoryCardProps) => {
 
   const navigate = useNavigate();
 
-  const handleClick = () => navigate(`/products`);
+  const handleClick = () => navigate(`/products?category=${category.id}`);
 
   return (
     <div className={styles.card} onClick={handleClick}>

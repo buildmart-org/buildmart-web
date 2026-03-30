@@ -7,6 +7,7 @@ import { ErrorBlock } from '@/shared/ui';
 import { ProductFilters, useProductsFilters } from '@/features/productsFilter';
 import { useProductsSort } from '@/features/productsSort';
 import styles from './ProductsPage.module.scss';
+
 export const ProductsPage = () => {
   const { sort, setSort } = useProductsSort();
   const {

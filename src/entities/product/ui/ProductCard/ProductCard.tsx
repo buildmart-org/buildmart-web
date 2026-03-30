@@ -19,7 +19,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     <div className={styles.card}>
       {/* IMAGE */}
       <div className={styles.imageWrapper} onClick={handleNavigate}>
-        <img src={product.file} alt={product.title} />
+        <img
+          src={product.files.find((p) => p.isPrimary)?.url}
+          alt={product.title}
+        />
       </div>
 
       {/* CONTENT */}

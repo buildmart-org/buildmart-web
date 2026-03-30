@@ -17,7 +17,9 @@ export const CategoryCard = (props: CategoryCardProps) => {
   return (
     <div className={styles.card} onClick={handleClick}>
       <div className={styles.imageWrapper}>
-        {category.file && <img src={category.file} alt={category.title} />}
+        {category.files && (
+          <img src={category.files[0].url} alt={category.title} />
+        )}
       </div>
       <h3 className={styles.title}>{category.title}</h3>
       <p className={styles.count}>

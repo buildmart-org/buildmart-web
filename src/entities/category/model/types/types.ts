@@ -1,3 +1,5 @@
+import type { File } from '@/entities/file';
+
 export interface Category {
   id: string;
   title: string;
@@ -6,5 +8,5 @@ export interface Category {
 
 export type CategoryWithDetails = Category & {
   productCount: number;
-  file: string | null;
+  files: File[];
 };

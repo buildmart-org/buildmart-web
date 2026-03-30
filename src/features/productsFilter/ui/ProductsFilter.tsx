@@ -1,6 +1,6 @@
 import styles from './ProductsFilter.module.scss';
 import { Button, Input } from '@/shared/ui';
-import type { ProductsFilter } from '@/features/productsFilter';
+import { type ProductsFilter, validateRating } from '@/features/productsFilter';
 import {
   mapCategoryToOption,
   useGetCategoriesQuery,
@@ -47,12 +47,16 @@ export const ProductFilters = (props: ProductFiltersProps) => {
           type="number"
           placeholder="From"
           value={draftFilters.rating?.toString() ?? ''}
-          onChange={(value) =>
-            setDraftFilters({
-              ...draftFilters,
-              rating: value ? Number(value) : undefined,
-            })
-          }
+          onChange={(value) => {
+            const validatedValue = validateRating(value);
+
+            if (validatedValue !== null) {
+              setDraftFilters({
+                ...draftFilters,
+                rating: validatedValue,
+              });
+            }
+          }}
         />
       </div>
 

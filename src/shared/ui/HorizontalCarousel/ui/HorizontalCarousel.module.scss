@@ -1,0 +1,41 @@
+.wrapper {
+  position: relative;
+}
+
+.container {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    flex: 0 0 calc((100% - (var(--items) - 1) * 16px) / var(--items));
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+}
+
+.left {
+  background-color: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  left: -20px;
+}
+
+.right {
+  background-color: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  right: -20px;
+}

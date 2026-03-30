@@ -1,4 +1,5 @@
 import styles from './AboutPage.module.scss';
+import { Heading } from '@/widgets/Heading';
 
 export const AboutPage = () => {
   return (
@@ -6,11 +7,11 @@ export const AboutPage = () => {
       <div className="container">
         {/* HERO */}
         <section className={styles.hero}>
-          <h1 className={styles.title}>About TechStore</h1>
-          <p className={styles.subtitle}>
-            Your trusted destination for premium electronics and cutting-edge
-            technology
-          </p>
+          <Heading
+            title={'About BuildMart'}
+            text={'Your trusted destination for premium materials'}
+            align={'center'}
+          />
         </section>
 
         {/* STORY */}

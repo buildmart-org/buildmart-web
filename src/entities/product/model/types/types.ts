@@ -1,4 +1,6 @@
 import type { Category } from '@/entities/category';
+import type { PaginationMeta } from '@/shared/api/types.ts';
+import { sortOptions } from '@/entities/product';
 
 export interface Product {
   id: string;
@@ -10,3 +12,10 @@ export interface Product {
   category: Category;
   file: string;
 }
+
+export interface Products {
+  data: Product[];
+  meta: PaginationMeta;
+}
+
+export type SortValueType = (typeof sortOptions)[number]['value'];

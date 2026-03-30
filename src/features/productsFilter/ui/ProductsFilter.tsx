@@ -7,6 +7,7 @@ import {
 } from '@/entities/category';
 import { Select } from '@/shared/ui/Select';
 import { useEffect, useMemo } from 'react';
+import { RangeSlider } from '@/shared/ui/RangeSlider/RangeSlider.tsx';
 
 interface ProductFiltersProps {
   draftFilters: ProductsFilter;
@@ -59,32 +60,50 @@ export const ProductFilters = (props: ProductFiltersProps) => {
       <div className={styles.section}>
         <span className={styles.title}>Price Range</span>
 
-        <div className={styles.inputs}>
-          <Input
-            type={'number'}
-            placeholder="From"
-            value={draftFilters.priceFrom?.toString() ?? ''}
-            onChange={(value) =>
-              setDraftFilters({
-                ...draftFilters,
-                priceFrom: Number(value) || undefined,
-              })
-            }
-          />
-
-          <Input
-            type={'number'}
-            placeholder="To"
-            value={draftFilters.priceTo?.toString() ?? ''}
-            onChange={(value) =>
-              setDraftFilters({
-                ...draftFilters,
-                priceTo: Number(value) || undefined,
-              })
-            }
-          />
-        </div>
+        <RangeSlider
+          min={0}
+          max={1000}
+          labelFrom={'$' + (draftFilters.priceFrom ?? 0)}
+          labelTo={'$' + (draftFilters.priceTo ?? 1000)}
+          value={[draftFilters.priceFrom ?? 0, draftFilters.priceTo ?? 1000]}
+          onChange={([from, to]) =>
+            setDraftFilters({
+              ...draftFilters,
+              priceFrom: from,
+              priceTo: to,
+            })
+          }
+        />
       </div>
+      {/*<div className={styles.section}>*/}
+      {/*  <span className={styles.title}>Price Range</span>*/}
+
+      {/*  <div className={styles.inputs}>*/}
+      {/*    <Input*/}
+      {/*      type={'number'}*/}
+      {/*      placeholder="From"*/}
+      {/*      value={draftFilters.priceFrom?.toString() ?? ''}*/}
+      {/*      onChange={(value) =>*/}
+      {/*        setDraftFilters({*/}
+      {/*          ...draftFilters,*/}
+      {/*          priceFrom: Number(value) || undefined,*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+
+      {/*    <Input*/}
+      {/*      type={'number'}*/}
+      {/*      placeholder="To"*/}
+      {/*      value={draftFilters.priceTo?.toString() ?? ''}*/}
+      {/*      onChange={(value) =>*/}
+      {/*        setDraftFilters({*/}
+      {/*          ...draftFilters,*/}
+      {/*          priceTo: Number(value) || undefined,*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  </div>*/}
+      {/*</div>*/}
 
       <div className={styles.section}>
         <span className={styles.title}>Category</span>

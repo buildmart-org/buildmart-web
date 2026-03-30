@@ -3,7 +3,7 @@ import { Button, Input } from '@/shared/ui';
 import { type ProductsFilter, validateRating } from '@/features/productsFilter';
 import {
   mapCategoryToOption,
-  useGetCategoriesQuery,
+  useGetFlatCategoriesQuery,
 } from '@/entities/category';
 import { Select } from '@/shared/ui/Select';
 import { useEffect, useMemo } from 'react';
@@ -30,7 +30,7 @@ export const ProductFilters = (props: ProductFiltersProps) => {
     console.log('draftFilters changed:', draftFilters);
   }, [draftFilters]);
 
-  const { data: categories } = useGetCategoriesQuery();
+  const { data: categories } = useGetFlatCategoriesQuery();
 
   const categoryOptions = useMemo(() => {
     return (categories ?? []).map(mapCategoryToOption);

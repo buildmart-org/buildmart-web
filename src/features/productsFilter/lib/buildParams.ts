@@ -10,6 +10,10 @@ export const buildParams = (filters: ProductsFilter) => {
     params.category = filters.category;
   }
 
+  if (filters.search) {
+    params.search = filters.search;
+  }
+
   if (filters.priceFrom !== undefined) {
     params.priceFrom = String(filters.priceFrom);
   }

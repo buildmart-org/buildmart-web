@@ -1,26 +1,15 @@
-import { type Deal, useGetDealsQuery } from '@/entities/deal';
+import { type Deal } from '@/entities/deal';
 import { DealCard } from '../DealCard/DealCard.tsx';
-import { ErrorBlock } from '@/shared/ui';
 import styles from './DealsList.module.scss';
-import { DealsSkeleton } from '@/entities/deal/ui/DealCardSkeleton/DealsSkeleton.tsx';
 import { ProductsList } from '@/entities/product/ui/ProductList/ProductList.tsx';
 import { DataLayout } from '@/widgets/DataLayout';
 
-export const DealsList = () => {
-  const { data: deals, isLoading, isError, refetch } = useGetDealsQuery();
+interface DealsListProps {
+  deals: Deal[];
+}
 
-  if (isError) {
-    return <ErrorBlock title="Can't load deals" onRetry={refetch} />;
-  }
-
-  // TODO: NotFoundBlock widget
-  // if (!deals) {
-  //   return <NotFoundBlock></NotFoundBlock>;
-  // }
-
-  if (isLoading) {
-    return <DealsSkeleton length={5} />;
-  }
+export const DealsList = (props: DealsListProps) => {
+  const { deals } = props;
 
   return deals?.map((deal: Deal) => (
     <div className={styles.item}>

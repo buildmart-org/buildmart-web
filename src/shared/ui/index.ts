@@ -7,6 +7,7 @@ import { HorizontalCarousel } from '@/shared/ui/HorizontalCarousel/ui/Horizontal
 import { VerticalList } from '@/shared/ui/VerticalList/VerticalList.tsx';
 import { Rating } from '@/shared/ui/Rating/Rating.tsx';
 import { Collapse } from '@/shared/ui/Collapse/Collapse.tsx';
+import { NotFoundBlock } from '@/shared/ui/NotFoundBlock/NotFoundBlock.tsx';
 
 export {
   Spinner,
@@ -18,5 +19,6 @@ export {
   HorizontalCarousel,
   VerticalList,
   ErrorBlock,
+  NotFoundBlock,
 };
 export * from './Toast';

@@ -27,14 +27,14 @@
 }
 
 .left {
-  background-color: #fff;
+  background-color: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: 50%;
   left: -20px;
 }
 
 .right {
-  background-color: #fff;
+  background-color: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: 50%;
   right: -20px;

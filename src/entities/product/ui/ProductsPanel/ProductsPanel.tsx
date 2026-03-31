@@ -2,7 +2,7 @@ import { ProductsControls } from '@/widgets/ProductsControlsPanel';
 import { ProductFilters } from '@/features/productsFilter';
 import type { SortValueType } from '@/entities/product';
 import type { ProductsFilter } from '@/features/productsFilter';
-import styles from '@/pages/Products/ui/ProductsPage.module.scss';
+import styles from './ProductsPanel.module.scss';
 
 interface ProductsPanelProps {
   total?: number;

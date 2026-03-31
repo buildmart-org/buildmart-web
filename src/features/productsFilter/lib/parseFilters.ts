@@ -2,6 +2,7 @@ import type { ProductsFilter } from '@/features/productsFilter';
 
 export const parseFilters = (params: URLSearchParams): ProductsFilter => {
   const category = params.get('category') ?? undefined;
+  const search = params.get('search') ?? undefined;
 
   const priceFromRaw = params.get('priceFrom');
   const priceFrom =
@@ -26,5 +27,6 @@ export const parseFilters = (params: URLSearchParams): ProductsFilter => {
     priceFrom,
     priceTo,
     rating,
+    search,
   };
 };

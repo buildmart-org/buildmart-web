@@ -16,6 +16,7 @@ interface InputProps extends HTMLInputType {
   Icon?: ReactNode;
   value?: string;
   onChange?: (value: string) => void;
+  onEnter?: () => void;
   disabled?: boolean;
   type?: string;
   theme?: InputThemeType;
@@ -29,6 +30,7 @@ export const Input = (props: InputProps) => {
     Icon,
     value,
     onChange,
+    onEnter,
     disabled = false,
     theme = '',
     type = 'text',
@@ -37,6 +39,12 @@ export const Input = (props: InputProps) => {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      onEnter?.();
+    }
   };
 
   const handleFocus = () => setFocus(true);
@@ -58,6 +66,7 @@ export const Input = (props: InputProps) => {
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
+        onKeyDown={handleKeyDown}
         type={type}
         className={clsx(styles.input, {
           [styles.disabled]: disabled,

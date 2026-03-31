@@ -3,6 +3,7 @@ export interface ProductsFilter {
   priceTo?: number;
   rating?: number;
   category?: string;
+  search?: string;
 }
 
 export type RawSearchParams = Record<string, string>;

@@ -9,8 +9,11 @@ import CartIcon from '@/shared/assets/icons/Cart.svg?react';
 import { Input } from '@/shared/ui/Input/Input.tsx';
 import { routePaths } from '@/shared/config';
 import clsx from 'clsx';
+import { useSearch } from '@/widgets/Heading/model/useSearch.ts';
 
 export const Header = () => {
+  const { search, setSearch, onEnter } = useSearch();
+
   return (
     <header className={styles.header}>
       <div className="container">
@@ -31,7 +34,13 @@ export const Header = () => {
 
           {/* Search */}
           <div className={styles.search}>
-            <Input placeholder="Search products..." Icon={<SearchIcon />} />
+            <Input
+              placeholder="Search products..."
+              value={search}
+              onChange={setSearch}
+              onEnter={onEnter}
+              Icon={<SearchIcon />}
+            />
           </div>
 
           {/* Cart */}

@@ -6,44 +6,49 @@
   border-radius: var(--radius-lg);
   border: 1px solid transparent;
   font-weight: var(--font-weight-medium);
-  line-height: 1;
+  line-height: 1.2;
   cursor: pointer;
   outline: none;
+  white-space: nowrap;
+  user-select: none;
+  box-sizing: border-box;
   transition:
     background var(--transition-fast),
     border-color var(--transition-fast),
     color var(--transition-fast);
-  min-height: max-content;
-  max-height: 100%;
 }
 
 .primary {
   background: var(--button-primary-bg);
   color: var(--button-primary-text);
-}
 
-.primary:hover {
-  background: var(--button-primary-hover);
+  &:hover:not(.disabled) {
+    background: var(--button-primary-hover);
+  }
 }
 
 .primary-outline {
   background: transparent;
   border-color: var(--button-primary-outline-border);
   color: var(--button-primary-outline-text);
-}
 
-.primary-outline:hover {
-  background: var(--button-primary-outline-hover);
+  &:hover:not(.disabled) {
+    background: var(--button-primary-outline-hover);
+  }
 }
 
 .secondary-outline {
   background: transparent;
   border-color: var(--button-secondary-outline-border);
   color: var(--button-secondary-outline-text);
-}
 
-.secondary-outline:hover {
-  background: var(--button-secondary-outline-hover);
+  &:hover:not(.disabled) {
+    background: var(--color-bg-muted);
+  }
+
+  &.xl {
+    border-width: 1px;
+  }
 }
 
 .ghost {
@@ -56,10 +61,11 @@
 }
 
 .iconWrapper {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  line-height: 0;
 
   svg {
     width: 100%;
@@ -69,7 +75,8 @@
 }
 
 .xs {
-  padding: 4px 8px;
+  height: 24px;
+  padding: 0 8px;
   font-size: var(--font-size-xs);
 
   .iconWrapper {
@@ -79,7 +86,8 @@
 }
 
 .sm {
-  padding: 6px 12px;
+  height: 32px;
+  padding: 0 12px;
   font-size: var(--font-size-xs);
 
   .iconWrapper {
@@ -89,7 +97,8 @@
 }
 
 .md {
-  padding: 10px 16px;
+  height: 40px;
+  padding: 0 16px;
   font-size: var(--font-size-sm);
 
   .iconWrapper {
@@ -99,7 +108,8 @@
 }
 
 .lg {
-  padding: 12px 24px;
+  height: 48px;
+  padding: 0 24px;
   font-size: var(--font-size-md);
 
   .iconWrapper {
@@ -109,7 +119,8 @@
 }
 
 .xl {
-  padding: 16px 28px;
+  height: 52px;
+  padding: 0 28px;
   font-size: var(--font-size-md);
   border-width: 2px;
 

@@ -16,6 +16,10 @@
   font-weight: var(--font-weight-bold);
 }
 
+.title {
+  font-size: var(--font-size-md);
+}
+
 .chevron {
   display: flex;
   transition: transform var(--transition-base);

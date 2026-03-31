@@ -36,7 +36,6 @@ export const ProductPage = () => {
           <ProductGallery files={product.files} />
         </div>
 
-        {/* Оставляем контейнер для позиционирования */}
         <div className={styles.info}>
           <ProductInfo product={product} />
         </div>

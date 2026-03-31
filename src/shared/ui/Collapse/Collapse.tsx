@@ -24,7 +24,7 @@ export const Collapse = ({
         onClick={() => setOpen((prev) => !prev)}
         type="button"
       >
-        <span>{title}</span>
+        <span className={styles.title}>{title}</span>
 
         <span className={`${styles.chevron} ${open ? styles.open : ''}`}>
           <ChevronDownIcon />

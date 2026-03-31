@@ -8,20 +8,30 @@ import { ProductInfo } from '@/entities/product/ui/ProductInfo/ProductInfo.tsx';
 import { ProductsList } from '@/entities/product/ui/ProductList/ProductList.tsx';
 import { DataLayout } from '@/widgets/DataLayout';
 import styles from './ProductPage.module.scss';
+import { ProductPageSkeleton } from '@/entities/product/ui/ProductPageSkeleton/ProductPageSkeleton.tsx';
+import { ErrorBlock } from '@/shared/ui';
 
 export const ProductPage = () => {
   const { id } = useParams<{ id: string }>();
 
-  const { data: product, isLoading } = useGetProductByIdQuery(id!, {
+  const {
+    data: product,
+    isLoading,
+    isFetching,
+    isError,
+  } = useGetProductByIdQuery(id!, {
     skip: !id,
   });
   const { data: related } = useGetRelatedProductsQuery(id!, {
     skip: !id,
   });
 
-  if (isLoading || !product) {
-    return <div className={styles.loading}>Loading...</div>;
+  if (isLoading || isFetching) {
+    return <ProductPageSkeleton />;
   }
+
+  if (isError) return <ErrorBlock />;
+  if (!product) return null;
 
   return (
     <div className={styles.wrapper}>

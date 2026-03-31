@@ -8,10 +8,6 @@ interface ProductListProps {
 export const ProductsList = (props: ProductListProps) => {
   const { products } = props;
 
-  // if (!products) {
-  //   const { data, isLoading, isError, refetch } = useGetProductsQuery();
-  // }
-
   return products?.map((product) => (
     <ProductCard key={product.id} product={product} />
   ));

@@ -1,0 +1,40 @@
+.wrapper {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: var(--color-bg);
+  cursor: pointer;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+.chevron {
+  display: flex;
+  transition: transform var(--transition-base);
+}
+
+.open {
+  transform: rotate(180deg);
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-base);
+}
+
+.show {
+  max-height: 1000px;
+}
+
+.inner {
+  padding: 16px;
+}

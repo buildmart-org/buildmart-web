@@ -9,7 +9,7 @@ type ButtonTheme =
   | 'secondary-outline'
   | 'ghost';
 
-type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
+type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;

@@ -20,7 +20,7 @@ export const HorizontalCarousel = ({
     const firstChild = ref.current.firstElementChild as HTMLElement;
     if (!firstChild) return;
 
-    const gap = 16; // тот же что в CSS
+    const gap = 16;
     const itemWidth = firstChild.offsetWidth + gap;
 
     ref.current.scrollBy({

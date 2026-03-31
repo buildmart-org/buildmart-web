@@ -18,6 +18,7 @@ import { ProductGallery } from '@/entities/product/ui/ProductGallery/ProductGall
 import { ProductCard } from '@/entities/product/ui/ProductCard/ProductCard.tsx';
 import { validateQty } from '@/entities/product/lib/validateQty.ts';
 import { validateRating } from '@/features/productsFilter';
+import { ProductsPanel } from '@/entities/product/ui/ProductsPanel/ProductsPanel.tsx';
 
 export type { Product, Products, Attribute, Spec, SortValueType };
 export {
@@ -27,6 +28,7 @@ export {
   sortOptions,
   ProductsList,
   ProductCard,
+  ProductsPanel,
   ProductAttributes,
   ProductSpecs,
   ProductGallery,

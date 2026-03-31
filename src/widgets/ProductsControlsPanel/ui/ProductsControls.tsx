@@ -12,7 +12,7 @@ interface ProductsControlPanelProps {
   isFiltersOpen: boolean;
 }
 
-export const ProductsControlPanel = (props: ProductsControlPanelProps) => {
+export const ProductsControls = (props: ProductsControlPanelProps) => {
   const { sort, setSort, total, isFiltersOpen, toggleFilters } = props;
 
   return (

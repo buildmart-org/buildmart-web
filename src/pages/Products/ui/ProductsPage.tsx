@@ -1,10 +1,9 @@
 import { Heading } from '@/widgets/Heading';
 import { DataLayout } from '@/widgets/DataLayout';
 import { ProductsList } from '@/entities/product/ui/ProductList/ProductList.tsx';
-import { useGetProductsQuery } from '@/entities/product';
-import { ProductsControlPanel } from '@/widgets/ProductsControlsPanel';
-import { ErrorBlock } from '@/shared/ui';
-import { ProductFilters, useProductsFilters } from '@/features/productsFilter';
+import { ProductsPanel, useGetProductsQuery } from '@/entities/product';
+import { ErrorBlock, NotFoundBlock } from '@/shared/ui';
+import { useProductsFilters } from '@/features/productsFilter';
 import { useProductsSort } from '@/features/productsSort';
 import styles from './ProductsPage.module.scss';
 import { ProductsSkeleton } from '@/entities/product/ui/ProductsSkeleton/ProductsSkeleton.tsx';
@@ -26,7 +25,6 @@ export const ProductsPage = () => {
     isError,
     isLoading,
     isFetching,
-
     refetch,
   } = useGetProductsQuery({ sort, ...filters });
 
@@ -57,8 +55,23 @@ export const ProductsPage = () => {
       <div className={styles.wrapper}>
         {HeadingComponent}
 
-        {/*TODO: redo and replace by block notFound*/}
-        <ErrorBlock title="No products found" />
+        {/* PANEL */}
+        <ProductsPanel
+          sortState={{ sort, setSort }}
+          filtersState={{
+            draftFilters,
+            setDraftFilters,
+            applyFilters,
+            resetFilters,
+            isOpen,
+            toggle: toggleFilters,
+          }}
+        />
+
+        <NotFoundBlock
+          title="No products found"
+          description={'Try t choose another filters'}
+        />
       </div>
     );
   }
@@ -68,23 +81,18 @@ export const ProductsPage = () => {
       {HeadingComponent}
 
       {/* PANEL */}
-      <div className={styles.panel}>
-        <ProductsControlPanel
-          total={products?.meta.total}
-          sort={sort}
-          setSort={setSort}
-          toggleFilters={toggleFilters}
-          isFiltersOpen={isOpen}
-        />
-
-        <ProductFilters
-          draftFilters={draftFilters}
-          setDraftFilters={setDraftFilters}
-          resetFilters={resetFilters}
-          applyFilters={applyFilters}
-          isFiltersOpen={isOpen}
-        />
-      </div>
+      <ProductsPanel
+        total={products.meta.total}
+        sortState={{ sort, setSort }}
+        filtersState={{
+          draftFilters,
+          setDraftFilters,
+          applyFilters,
+          resetFilters,
+          isOpen,
+          toggle: toggleFilters,
+        }}
+      />
 
       {/*PRODUCTS*/}
       <div>

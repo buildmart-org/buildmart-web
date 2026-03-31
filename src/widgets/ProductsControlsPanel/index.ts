@@ -1,3 +1,3 @@
-import { ProductsControlPanel } from '@/widgets/ProductsControlsPanel/ui/ProductsControlPanel.tsx';
+import { ProductsControls } from '@/widgets/ProductsControlsPanel/ui/ProductsControls.tsx';
 
-export { ProductsControlPanel };
+export { ProductsControls };

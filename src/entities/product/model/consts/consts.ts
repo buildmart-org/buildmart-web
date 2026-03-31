@@ -6,3 +6,5 @@ export const sortOptions: SelectOption<string>[] = [
   { label: 'Price (low-high)', value: 'price:asc' },
   { label: 'Price (high-low)', value: 'price:desc' },
 ];
+
+export const MAX_PRODUCT_QTY = 99;

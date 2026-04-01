@@ -1,8 +1,33 @@
 import styles from './CartTable.module.scss';
 import Trash from '@/shared/assets/icons/Trash.svg?react';
 import { Button } from '@/shared/ui';
+import { routePaths } from '@/shared/config';
+import { useAppDispatch } from '@/shared/lib/redux/hooks.ts';
+import { cartActions } from '@/entities/cart/model/slice/cartSlice.ts';
+import { formatCurrency } from '@/shared/lib';
+import type { CartDetailedItem } from '@/entities/cart/model/types/CartSchema.ts';
 
-export const CartTable = () => {
+interface CartTableProps {
+  cart: CartDetailedItem[];
+}
+
+export const CartTable = (props: CartTableProps) => {
+  const { cart } = props;
+
+  const dispatch = useAppDispatch();
+
+  const onQuantityIncrementClick = (productId: string) => {
+    dispatch(cartActions.changeQuantity({ productId, delta: 1 }));
+  };
+
+  const onQuantityDecrementClick = (productId: string) => {
+    dispatch(cartActions.changeQuantity({ productId, delta: -1 }));
+  };
+
+  const onRemoveCartItemClick = (productId: string) => {
+    dispatch(cartActions.removeItem({ productId }));
+  };
+
   return (
     <div className={styles.cartBox}>
       <div className={styles.headerRow}>
@@ -13,18 +38,21 @@ export const CartTable = () => {
       </div>
 
       <div className={styles.items}>
-        {[1, 2].map((i) => (
-          <div key={i} className={styles.item}>
+        {cart.map((item: CartDetailedItem) => (
+          <div key={item.product.id} className={styles.item}>
             <div className={styles.product}>
               <img
-                src="https://images.unsplash.com/photo-1718117075248-3d3c3cd65264"
+                src={item.product.files.find((f) => f.isPrimary)?.url}
                 className={styles.image}
               />
               <div>
-                <a className={styles.name} href="#">
-                  Premium Cement Bags
+                <a
+                  className={styles.name}
+                  href={`${routePaths.products}/${item.product.id}`}
+                >
+                  {item.product.title}
                 </a>
-                <p className={styles.category}>Cement & Concrete</p>
+                <p className={styles.category}>{item.product.category.title}</p>
 
                 {/*<button className={styles.removeMobile}>*/}
                 {/*<Trash width={16} height={16} />*/}
@@ -33,21 +61,33 @@ export const CartTable = () => {
               </div>
             </div>
 
-            <div className={styles.price}>$24.99</div>
+            <div className={styles.price}>
+              {formatCurrency(item.product.price)}
+            </div>
 
             <div className={styles.qty}>
-              <Button className={styles.qtyBtn} theme={'ghost'} size={'sm'}>
+              <Button
+                onClick={() => onQuantityDecrementClick(item.product.id)}
+                className={styles.qtyBtn}
+                theme={'ghost'}
+                size={'sm'}
+              >
                 −
               </Button>
-              <span>1</span>
-              <Button className={styles.qtyBtn} theme={'ghost'} size={'sm'}>
+              <span>{item.quantity ?? 0}</span>
+              <Button
+                onClick={() => onQuantityIncrementClick(item.product.id)}
+                className={styles.qtyBtn}
+                theme={'ghost'}
+                size={'sm'}
+              >
                 +
               </Button>{' '}
             </div>
 
             <div className={styles.total}>
-              <span>$24.99</span>
-              <button>
+              <span>{formatCurrency(item.total)}</span>
+              <button onClick={() => onRemoveCartItemClick(item.product.id)}>
                 <Trash className={styles.trash} />
               </button>
             </div>

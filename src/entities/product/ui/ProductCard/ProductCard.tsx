@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Rating } from '@/shared/ui';
 import CartIcon from '@/shared/assets/icons/Cart.svg?react';
 import styles from './ProductCard.module.scss';
+import { useAddToCart } from '@/features/addToCart/model/hooks/useAddToCart.ts';
 
 interface ProductCardProps {
   product: Product;
@@ -10,6 +11,7 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
+  const { addToCart } = useAddToCart();
 
   const handleNavigate = () => {
     navigate(`/product/${product.id}`);
@@ -50,7 +52,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className={styles.category}>{product.category.title}</div>
 
         {/* BUTTON */}
-        <Button className={styles.button} theme="primary" Icon={<CartIcon />}>
+        <Button
+          onClick={() => addToCart(product)}
+          className={styles.button}
+          theme="primary"
+          Icon={<CartIcon />}
+        >
           Add to Cart
         </Button>
       </div>

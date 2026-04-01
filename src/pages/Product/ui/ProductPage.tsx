@@ -52,7 +52,7 @@ export const ProductPage = () => {
           title="Product not found"
           description="This product may have been removed or does not exist"
           actionText="Go to products"
-          onAction={() => navigate('/products')}
+          onAction={() => navigate(routePaths.products)}
         />
       </div>
     );

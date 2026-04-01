@@ -4,6 +4,7 @@ export interface ProductsFilter {
   rating?: number;
   category?: string;
   search?: string;
+  ids?: string[];
 }
 
 export type RawSearchParams = Record<string, string>;

@@ -8,6 +8,7 @@ import { VerticalList } from '@/shared/ui/VerticalList/VerticalList.tsx';
 import { Rating } from '@/shared/ui/Rating/Rating.tsx';
 import { Collapse } from '@/shared/ui/Collapse/Collapse.tsx';
 import { NotFoundBlock } from '@/shared/ui/NotFoundBlock/NotFoundBlock.tsx';
+import { Badge } from '@/shared/ui/Badge/Badge.tsx';
 
 export {
   Spinner,
@@ -15,6 +16,7 @@ export {
   Input,
   Rating,
   Collapse,
+  Badge,
   Grid,
   HorizontalCarousel,
   VerticalList,

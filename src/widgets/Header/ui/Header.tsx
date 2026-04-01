@@ -10,9 +10,12 @@ import { Input } from '@/shared/ui/Input/Input.tsx';
 import { routePaths } from '@/shared/config';
 import clsx from 'clsx';
 import { useSearch } from '@/widgets/Heading/model/useSearch.ts';
+import { useCartCount } from '@/features/cartCount';
+import { Badge } from '@/shared/ui';
 
 export const Header = () => {
   const { search, setSearch, onEnter } = useSearch();
+  const count = useCartCount();
 
   return (
     <header className={styles.header}>
@@ -45,8 +48,10 @@ export const Header = () => {
 
           {/* Cart */}
           <nav className={styles.nav}>
-            <Link to={routePaths.cart}>
+            <Link to={routePaths.cart} className={styles.cartWrapper}>
               <CartIcon className={styles.cart} />
+
+              {count && <Badge value={count} />}
             </Link>
           </nav>
         </div>

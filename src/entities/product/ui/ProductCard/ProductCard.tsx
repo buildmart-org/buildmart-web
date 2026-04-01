@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Rating } from '@/shared/ui';
 import CartIcon from '@/shared/assets/icons/Cart.svg?react';
 import styles from './ProductCard.module.scss';
-import { useAddToCart } from '@/features/addToCart/model/hooks/useAddToCart.ts';
+import { useAddToCart } from '@/features/addToCart';
 
 interface ProductCardProps {
   product: Product;

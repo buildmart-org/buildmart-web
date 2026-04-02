@@ -6,6 +6,7 @@ import {
   Toast,
   ToastContext,
   type ToastItem,
+  type ToastVariantType,
 } from '@/shared/ui/Toast';
 
 interface Props {
@@ -13,17 +14,22 @@ interface Props {
 }
 
 export const ToastProvider = ({ children }: Props) => {
-  const [toast, setToastState] = useState<ToastItem | null>(null);
+  const [toast, setToastState] = useState<{
+    item: ToastItem;
+    variant: ToastVariantType;
+  } | null>(null);
 
-  const open = (content: string) => {
-    setToastState({ id: Date.now().toString(), content });
+  const open = (content: string, variant: ToastVariantType = 'success') => {
+    setToastState({
+      item: { id: Date.now().toString(), content },
+      variant,
+    });
   };
 
   const close = () => setToastState(null);
 
-  // делаем доступным сервису
   useEffect(() => {
-    setToast(open);
+    setToast(open); // use toast in service
   }, []);
 
   const value = useMemo(() => ({ open, close }), []);
@@ -33,7 +39,11 @@ export const ToastProvider = ({ children }: Props) => {
       {children}
       {createPortal(
         <div className={styles.toastsWrapper}>
-          {toast && <Toast close={close}>{toast.content}</Toast>}
+          {toast && (
+            <Toast close={close} variant={toast.variant}>
+              {toast.item.content}
+            </Toast>
+          )}{' '}
         </div>,
         document.body,
       )}

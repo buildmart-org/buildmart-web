@@ -1,6 +1,7 @@
 import { isRejectedWithValue, type Middleware } from '@reduxjs/toolkit';
 import { extractErrorMessage, logger } from '@/shared/lib';
 import { showToast } from '@/shared/ui/Toast/lib/toastService.ts';
+import { ToastVariant } from '@/shared/ui';
 
 export const errorMiddleware: Middleware = () => (next) => (action) => {
   if (isRejectedWithValue(action)) {
@@ -8,7 +9,7 @@ export const errorMiddleware: Middleware = () => (next) => (action) => {
     const message = extractErrorMessage(error);
 
     // toast
-    showToast(message);
+    showToast(message, ToastVariant.error);
 
     // log
     logger.error({

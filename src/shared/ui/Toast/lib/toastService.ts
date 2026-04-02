@@ -1,9 +1,14 @@
-let toastFn: ((message: string) => void) | null = null;
+import type { ToastVariantType } from '@/shared/ui';
 
-export const setToast = (fn: (message: string) => void) => {
+let toastFn: ((message: string, variant?: ToastVariantType) => void) | null =
+  null;
+
+export const setToast = (
+  fn: (message: string, variant?: ToastVariantType) => void,
+) => {
   toastFn = fn;
 };
 
-export const showToast = (message: string) => {
-  toastFn?.(message);
+export const showToast = (message: string, variant?: ToastVariantType) => {
+  toastFn?.(message, variant);
 };

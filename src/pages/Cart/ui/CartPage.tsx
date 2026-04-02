@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { routePaths } from '@/shared/config';
 import { selectCartDetailedItems } from '@/entities/cart/model/selectors/selectCartDetailedITems.ts';
 import { useAppSelector } from '@/shared/lib/redux/hooks.ts';
-import { selectItemsIdsSelector } from '@/entities/cart';
+import { CartPageSkeleton, selectItemsIdsSelector } from '@/entities/cart';
 
 export const CartPage = () => {
   const navigate = useNavigate();
@@ -32,8 +32,7 @@ export const CartPage = () => {
   const cartEmpty = itemsIds.length === 0 || !data || data?.data.length === 0;
 
   if (isLoading) {
-    return <div>Загрузка товаров</div>;
-    // return <CartPageSkeleton />;
+    return <CartPageSkeleton />;
   }
 
   if (isError) {

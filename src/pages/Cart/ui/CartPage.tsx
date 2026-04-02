@@ -17,11 +17,6 @@ import { selectItemsIdsSelector } from '@/entities/cart';
 export const CartPage = () => {
   const navigate = useNavigate();
   const itemsIds = useAppSelector(selectItemsIdsSelector);
-  // const itemsIds = [
-  //   '8f6b1c9e-5e2a-4c3f-9d77-2a4f9b8e1c01',
-  //   '2f1c8a4e-3b7d-4a9e-9a1b-6c2d8e4f1001',
-  //   '3a9e7d6c-5b4f-4c2a-8d1e-7f6a5b4c2002',
-  // ];
 
   const { data, isLoading, isFetching, isError, refetch } = useGetProductsQuery(
     { ids: itemsIds },

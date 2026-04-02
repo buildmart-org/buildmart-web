@@ -1,14 +1,11 @@
 import { useState } from 'react';
-import {
-  type Product,
-  ProductAttributes,
-  validateQty,
-} from '@/entities/product';
+import { type Product, validateQty } from '@/entities/product';
 import { Button, Collapse, Input, Rating } from '@/shared/ui';
-import { ProductSpecs } from '@/entities/product/ui/ProductSpecs/ProductSpecs.tsx';
+import { ProductSpecs } from '@/widgets/Product/ProductSpecs/ProductSpecs.tsx';
 import CartIcon from '@/shared/assets/icons/Cart.svg?react';
 import styles from './ProductInfo.module.scss';
 import { useAddToCart } from '@/features/addToCart';
+import { ProductAttributes } from '@/widgets/Product';
 
 interface ProductInfoProps {
   product: Product;

@@ -1,8 +1,8 @@
-import { ProductsControls } from '@/widgets/ProductsControlsPanel';
 import { ProductFilters } from '@/features/productsFilter';
 import type { SortValueType } from '@/entities/product';
 import type { ProductsFilter } from '@/features/productsFilter';
 import styles from './ProductsPanel.module.scss';
+import { ProductsControls } from '@/widgets/Product';
 
 interface ProductsPanelProps {
   total?: number;

@@ -16,7 +16,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const handleNavigate = () => {
     navigate(`/product/${product.id}`);
   };
-  // TODO: refactor and redo ProductCard to better variant
   return (
     <div className={styles.card}>
       {/* IMAGE */}

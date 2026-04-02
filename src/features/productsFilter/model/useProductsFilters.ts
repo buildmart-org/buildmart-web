@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ProductsFilter } from '@/features/productsFilter';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { buildParams } from '@/features/productsFilter/lib/buildParams.ts';
 import { parseFilters } from '@/features/productsFilter/lib/parseFilters.ts';
+import { routePaths } from '@/shared/config';
 
 export const useProductsFilters = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const navigate = useNavigate();
   const filters = useMemo(() => parseFilters(searchParams), [searchParams]);
 
   const [draftFilters, setDraftFilters] = useState<ProductsFilter>(filters);
@@ -18,7 +19,12 @@ export const useProductsFilters = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const applyFilters = (nextDraft: ProductsFilter) => {
-    setSearchParams(buildParams(nextDraft));
+    const params = new URLSearchParams(buildParams(nextDraft));
+
+    navigate({
+      pathname: routePaths.products,
+      search: `?${params.toString()}`,
+    });
   };
 
   const resetFilters = () => {

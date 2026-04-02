@@ -7,12 +7,12 @@ import {
   ShippingInfo,
 } from '@/widgets/Cart';
 import { useGetProductsQuery } from '@/entities/product';
-import { ErrorBlock, NotFoundBlock } from '@/shared/ui';
+import { Button, ErrorBlock, InfoBlock } from '@/shared/ui';
 import { useNavigate } from 'react-router-dom';
 import { routePaths } from '@/shared/config';
 import { selectCartDetailedItems } from '@/entities/cart/model/selectors/selectCartDetailedITems.ts';
 import { useAppSelector } from '@/shared/lib/redux/hooks.ts';
-import { selectItemsIdsSelector } from '@/entities/cart';
+import { CartPageSkeleton, selectItemsIdsSelector } from '@/entities/cart';
 
 export const CartPage = () => {
   const navigate = useNavigate();
@@ -32,8 +32,7 @@ export const CartPage = () => {
   const cartEmpty = itemsIds.length === 0 || !data || data?.data.length === 0;
 
   if (isLoading) {
-    return <div>Загрузка товаров</div>;
-    // return <CartPageSkeleton />;
+    return <CartPageSkeleton />;
   }
 
   if (isError) {
@@ -49,11 +48,17 @@ export const CartPage = () => {
   if (cartEmpty) {
     return (
       <div className={styles.wrapper}>
-        <NotFoundBlock
-          title="Product not found"
-          description="This product may have been removed or does not exist"
-          actionText="Go to products"
-          onAction={() => navigate(routePaths.products)}
+        <InfoBlock
+          title="Your Cart is Empty"
+          description="Start shopping to add items to your cart"
+          actions={
+            <Button
+              theme={'primary'}
+              onClick={() => navigate(routePaths.products)}
+            >
+              Browse Products
+            </Button>
+          }
         />
       </div>
     );

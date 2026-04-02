@@ -10,12 +10,12 @@ import { Input } from '@/shared/ui/Input/Input.tsx';
 import { routePaths } from '@/shared/config';
 import clsx from 'clsx';
 import { useSearch } from '@/widgets/Heading/model/useSearch.ts';
-import { useCartCount } from '@/features/cartCount';
 import { Badge } from '@/shared/ui';
+import { useCartBadgeCount } from '@/features/cartBage';
 
 export const Header = () => {
   const { search, setSearch, onEnter } = useSearch();
-  const count = useCartCount();
+  const count = useCartBadgeCount();
 
   return (
     <header className={styles.header}>

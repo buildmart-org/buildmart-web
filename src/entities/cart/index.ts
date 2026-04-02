@@ -8,8 +8,10 @@ import type {
   Cart,
   CartSchema,
 } from '@/entities/cart/model/types/CartSchema.ts';
+import { CartPageSkeleton } from '@/entities/cart/ui/CartPageSkeleton.tsx';
 
 export {
+  CartPageSkeleton,
   MAX_PRODUCT_QTY,
   loadCart,
   removeItemById,

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './CategoryCard.module.scss';
 import { pluralizeProduct } from '@/shared/lib';
 import type { CategoryWithDetails } from '@/entities/category/model/types/types.ts';
+import { routePaths } from '@/shared/config';
 
 interface CategoryCardProps {
   category: CategoryWithDetails;
@@ -11,8 +12,9 @@ export const CategoryCard = (props: CategoryCardProps) => {
   const { category } = props;
 
   const navigate = useNavigate();
-
-  const handleClick = () => navigate(`/products?category=${category.id}`);
+  const handleClick = () => {
+    navigate(`${routePaths.products}?category=${category.id}`);
+  };
 
   return (
     <div className={styles.card} onClick={handleClick}>

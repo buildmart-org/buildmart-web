@@ -7,7 +7,7 @@ import {
 } from '@/entities/product';
 import { DataLayout } from '@/widgets/DataLayout';
 import styles from './ProductPage.module.scss';
-import { ErrorBlock, NotFoundBlock } from '@/shared/ui';
+import { Button, ErrorBlock, InfoBlock } from '@/shared/ui';
 import { routePaths } from '@/shared/config';
 import { ProductGallery, ProductInfo } from '@/widgets/Product';
 
@@ -47,12 +47,18 @@ export const ProductPage = () => {
   if (!product) {
     return (
       <div className={styles.wrapper}>
-        <NotFoundBlock
+        <InfoBlock
           title="Product not found"
           description="This product may have been removed or does not exist"
-          actionText="Go to products"
-          onAction={() => navigate(routePaths.products)}
-        />
+          actions={
+            <Button
+              theme={'primary'}
+              onClick={() => navigate(routePaths.products)}
+            >
+              Go to products
+            </Button>
+          }
+        ></InfoBlock>
       </div>
     );
   }
@@ -92,12 +98,18 @@ export const ProductPage = () => {
             </DataLayout>
           </div>
         ) : (
-          <NotFoundBlock
+          <InfoBlock
             title="No related products"
             description="Try exploring other categories"
-            actionText="Browse products"
-            onAction={() => navigate('/products')}
-          />
+            actions={
+              <Button
+                theme={'primary'}
+                onClick={() => navigate(routePaths.products)}
+              >
+                Browse products
+              </Button>
+            }
+          ></InfoBlock>
         )}
       </div>
     </div>

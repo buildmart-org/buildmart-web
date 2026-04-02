@@ -7,7 +7,7 @@ import {
   ShippingInfo,
 } from '@/widgets/Cart';
 import { useGetProductsQuery } from '@/entities/product';
-import { ErrorBlock, NotFoundBlock } from '@/shared/ui';
+import { Button, ErrorBlock, InfoBlock } from '@/shared/ui';
 import { useNavigate } from 'react-router-dom';
 import { routePaths } from '@/shared/config';
 import { selectCartDetailedItems } from '@/entities/cart/model/selectors/selectCartDetailedITems.ts';
@@ -48,11 +48,17 @@ export const CartPage = () => {
   if (cartEmpty) {
     return (
       <div className={styles.wrapper}>
-        <NotFoundBlock
+        <InfoBlock
           title="Your Cart is Empty"
           description="Start shopping to add items to your cart"
-          actionText="Browse Products"
-          onAction={() => navigate(routePaths.products)}
+          actions={
+            <Button
+              theme={'primary'}
+              onClick={() => navigate(routePaths.products)}
+            >
+              Browse Products
+            </Button>
+          }
         />
       </div>
     );

@@ -2,7 +2,7 @@ import styles from './DealsPage.module.scss';
 import { DealsList, useGetDealsQuery } from '@/entities/deal';
 import { DataLayout } from '@/widgets/DataLayout';
 import { Heading } from '@/widgets/Heading';
-import { ErrorBlock, NotFoundBlock } from '@/shared/ui';
+import { Button, ErrorBlock, InfoBlock } from '@/shared/ui';
 import { DealsSkeleton } from '@/entities/deal/ui/DealCardSkeleton/DealsSkeleton.tsx';
 import { useNavigate } from 'react-router-dom';
 import { routePaths } from '@/shared/config';
@@ -33,11 +33,17 @@ export const DealsPage = () => {
     );
   } else if (!deals || deals.length === 0) {
     content = (
-      <NotFoundBlock
+      <InfoBlock
         title="No deals available"
         description="Browse all products"
-        actionText="Go to catalog"
-        onAction={() => navigate(routePaths.products)}
+        actions={
+          <Button
+            theme={'primary'}
+            onClick={() => navigate(routePaths.products)}
+          >
+            Go to catalog
+          </Button>
+        }
       />
     );
   } else {

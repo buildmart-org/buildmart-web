@@ -1,0 +1,109 @@
+import styles from './ProductsFilter.module.scss';
+import { Button, Input } from '@/shared/ui';
+import { type ProductsFilter, validateRating } from '@/features/productsFilter';
+import {
+  mapCategoryToOption,
+  useGetFlatCategoriesQuery,
+} from '@/entities/category';
+import { Select } from '@/shared/ui/Select';
+import { useMemo } from 'react';
+import { RangeSlider } from '@/shared/ui/RangeSlider/RangeSlider.tsx';
+
+interface ProductFiltersProps {
+  draftFilters: ProductsFilter;
+  setDraftFilters: (filters: ProductsFilter) => void;
+  applyFilters: (draftFilters: ProductsFilter) => void;
+  resetFilters: () => void;
+  isFiltersOpen: boolean;
+}
+
+export const ProductFilters = (props: ProductFiltersProps) => {
+  const {
+    draftFilters,
+    setDraftFilters,
+    resetFilters,
+    applyFilters,
+    isFiltersOpen,
+  } = props;
+
+  const { data: categories } = useGetFlatCategoriesQuery();
+
+  const categoryOptions = useMemo(() => {
+    return (categories ?? []).map(mapCategoryToOption);
+  }, [categories]);
+
+  if (!isFiltersOpen) return null;
+
+  return (
+    <div className={styles.wrapper}>
+      {/* Rating */}
+      <div className={styles.section}>
+        <span className={styles.title}>Minimum Rating</span>
+        <Input
+          type="number"
+          placeholder="From"
+          value={draftFilters.rating?.toString() ?? ''}
+          onChange={(value) => {
+            const validatedValue = validateRating(value);
+
+            if (validatedValue !== null) {
+              setDraftFilters({
+                ...draftFilters,
+                rating: validatedValue,
+              });
+            }
+          }}
+        />
+      </div>
+
+      {/* Price */}
+      <div className={styles.section}>
+        <span className={styles.title}>Price Range</span>
+
+        <RangeSlider
+          min={0}
+          max={1000}
+          labelFrom={'$' + (draftFilters.priceFrom ?? 0)}
+          labelTo={'$' + (draftFilters.priceTo ?? 1000)}
+          value={[draftFilters.priceFrom ?? 0, draftFilters.priceTo ?? 1000]}
+          onChange={([from, to]) =>
+            setDraftFilters({
+              ...draftFilters,
+              priceFrom: from,
+              priceTo: to,
+            })
+          }
+        />
+      </div>
+
+      <div className={styles.section}>
+        <span className={styles.title}>Category</span>
+        <Select
+          value={draftFilters.category ?? ''}
+          placeholder={'Select'}
+          options={categoryOptions}
+          onChange={(value) =>
+            setDraftFilters({
+              ...draftFilters,
+              category: value || undefined,
+            })
+          }
+        />
+      </div>
+
+      {/* Actions */}
+      <div className={styles.actions}>
+        <Button theme="primary-outline" size="md" onClick={resetFilters}>
+          Clear All Filters
+        </Button>
+        <Button
+          theme="primary"
+          size="md"
+          onClick={() => applyFilters(draftFilters)}
+        >
+          Apply Filters
+        </Button>
+      </div>
+    </div>
+  );
+};

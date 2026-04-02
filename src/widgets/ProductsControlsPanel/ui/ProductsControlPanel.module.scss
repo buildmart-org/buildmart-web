@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
+
+.filtersShow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

@@ -1,0 +1,11 @@
+.StarRating {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.starIcon {
+  transition:
+    color 0.2s ease-in-out,
+    fill 0.2s ease-in-out;
+}

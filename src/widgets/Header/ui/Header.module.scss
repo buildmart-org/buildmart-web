@@ -1,0 +1,70 @@
+.header {
+  width: 100%;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  gap: 32px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-header);
+}
+
+.logoIcon {
+  width: 50px;
+  height: 50px;
+}
+
+.logoText {
+  color: var(--color-text-main);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-normal);
+  transition: color var(--transition-fast);
+}
+
+.nav a:hover {
+  color: var(--color-primary);
+}
+
+.search {
+  flex: 1;
+  max-width: 460px;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.cart:hover {
+  color: var(--color-primary);
+}

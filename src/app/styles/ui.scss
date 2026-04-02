@@ -1,0 +1,53 @@
+:root {
+  /* RADIUS */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* CONTENT */
+  --container-width: 1320px;
+  --top-margin: 32px;
+
+  /* INPUT */
+  --input-bg: #fff;
+  --input-border: var(--color-border);
+  --input-border-focus: var(--color-primary);
+  --input-placeholder: #9ca3af;
+  --input-text: var(--color-text-main);
+  --input-bg-disabled: #f3f3f3;
+
+  /* DARK INPUT */
+
+  --input-dark-bg: #1e2939;
+  --input-dark-border: #364153;
+  --input-dark-border-focus: var(--color-primary);
+  --input-dark-placeholder: #9ca3af;
+  --input-dark-text: #fff;
+  --input-dark-bg-disabled: #243042;
+
+  /* BUTTON */
+  --button-primary-bg: var(--color-primary);
+  --button-primary-hover: var(--color-primary-hover);
+  --button-primary-text: #fff;
+
+  --button-primary-outline-border: var(--color-primary);
+  --button-primary-outline-text: var(--color-primary);
+  --button-primary-outline-hover: var(--color-primary-ghost);
+
+  --button-secondary-outline-border: var(--color-border);
+  --button-secondary-outline-text: var(--color-text-main);
+  --button-secondary-outline-hover: var(--color-secondary-ghost);
+
+  /* TOAST */
+  --toast-border: #0a0a0a80;
+  --toast-icon: var(--color-text-main);
+
+  /* SHADOW */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 5%);
+  --shadow-md: 0 4px 10px rgb(0 0 0 / 8%);
+  --shadow-lg: 0 10px 25px rgb(0 0 0 / 12%);
+
+  /* TRANSITION */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+}

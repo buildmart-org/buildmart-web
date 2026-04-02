@@ -1,5 +1,6 @@
 import { Button } from '@/shared/ui';
 import styles from './NotFoundBlock.module.scss';
+import ArrrowRigntIcon from '@/shared/assets/icons/Arrow.svg?react';
 
 interface NotFoundBlockProps {
   title: string;
@@ -23,14 +24,22 @@ export const NotFoundBlock = ({
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
-        <p className={styles.title}>{title}</p>
+        <h1 className={styles.title}>{title}</h1>
 
         {description && <p className={styles.description}>{description}</p>}
 
         {(actionText || secondaryText) && (
           <div className={styles.actions}>
             {actionText && onAction && (
-              <Button onClick={onAction}>{actionText}</Button>
+              <Button
+                theme={'primary'}
+                Icon={<ArrrowRigntIcon />}
+                iconSide={'right'}
+                onClick={onAction}
+                size={'xl'}
+              >
+                {actionText}
+              </Button>
             )}
 
             {secondaryText && onSecondaryAction && (

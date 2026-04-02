@@ -71,27 +71,6 @@ export const cartSlice = createSlice({
 
       item.quantity = Math.min(nextQuantity, MAX_PRODUCT_QTY);
     },
-    clearCart: (state) => {
-      state.items = [];
-    },
-    // initCartData: (state) => {
-    //   const cartSaved = localStorage.getItem(LOCAL_STORAGE_CART_KEY);
-    //
-    //   if (cartSaved) {
-    //     try {
-    //       state.items = JSON.parse(cartSaved);
-    //     } catch (error) {
-    //       logger.error({
-    //         scope: 'cart',
-    //         message: 'Could not parse cart data from localstorage',
-    //         error: error,
-    //         meta: {
-    //           trySave: JSON.stringify(cartSaved),
-    //         },
-    //       });
-    //     }
-    //   }
-    // },
   },
 });
 

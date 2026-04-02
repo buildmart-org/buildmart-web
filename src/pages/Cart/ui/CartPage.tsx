@@ -18,7 +18,7 @@ export const CartPage = () => {
   const navigate = useNavigate();
   const itemsIds = useAppSelector(selectItemsIdsSelector);
 
-  const { data, isLoading, isFetching, isError, refetch } = useGetProductsQuery(
+  const { data, isLoading, isError, refetch } = useGetProductsQuery(
     { ids: itemsIds },
     {
       skip: itemsIds.length === 0,
@@ -31,7 +31,7 @@ export const CartPage = () => {
 
   const cartEmpty = itemsIds.length === 0 || !data || data?.data.length === 0;
 
-  if (isLoading || isFetching) {
+  if (isLoading) {
     return <div>Загрузка товаров</div>;
     // return <CartPageSkeleton />;
   }

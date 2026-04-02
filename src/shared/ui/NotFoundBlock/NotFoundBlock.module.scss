@@ -1,11 +1,9 @@
 .wrapper {
   width: 100%;
-  min-height: 400px;
+  min-height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  // padding: 40px 16px;
 }
 
 .content {
@@ -16,18 +14,13 @@
   gap: 10px;
 }
 
-.title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
-}
-
 .description {
   font-size: var(--font-size-md);
   color: var(--color-text-secondary);
 }
 
 .actions {
+  padding: 24px;
   display: flex;
   gap: 8px;
   justify-content: center;

@@ -1,10 +1,10 @@
-import styles from './ProductsControlPanel.module.scss';
+import styles from './ProductsControls.module.scss';
 import { Button } from '@/shared/ui';
 import FilterIcon from '@/shared/assets/icons/Filter.svg?react';
 import { ProductsSort } from '@/features/productsSort/ui/ProductsSort.tsx';
 import type { SortValueType } from '@/entities/product';
 
-interface ProductsControlPanelProps {
+interface ProductsPanelProps {
   total?: number;
   sort: SortValueType;
   setSort: (sort: SortValueType) => void;
@@ -12,7 +12,7 @@ interface ProductsControlPanelProps {
   isFiltersOpen: boolean;
 }
 
-export const ProductsControls = (props: ProductsControlPanelProps) => {
+export const ProductsControls = (props: ProductsPanelProps) => {
   const { sort, setSort, total, isFiltersOpen, toggleFilters } = props;
 
   return (

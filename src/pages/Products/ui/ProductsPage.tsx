@@ -1,12 +1,13 @@
 import { Heading } from '@/widgets/Heading';
 import { DataLayout } from '@/widgets/DataLayout';
 import { ProductsList } from '@/entities/product/ui/ProductList/ProductList.tsx';
-import { ProductsPanel, useGetProductsQuery } from '@/entities/product';
+import { useGetProductsQuery } from '@/entities/product';
 import { ErrorBlock, NotFoundBlock } from '@/shared/ui';
 import { useProductsFilters } from '@/features/productsFilter';
 import { useProductsSort } from '@/features/productsSort';
 import styles from './ProductsPage.module.scss';
 import { ProductsSkeleton } from '@/entities/product/ui/ProductsSkeleton/ProductsSkeleton.tsx';
+import { ProductsPanel } from '@/widgets/Product';
 
 export const ProductsPage = () => {
   const { sort, setSort } = useProductsSort();

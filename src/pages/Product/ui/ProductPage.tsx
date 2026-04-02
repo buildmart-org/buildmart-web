@@ -1,16 +1,15 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import {
+  ProductPageSkeleton,
+  ProductsList,
   useGetProductByIdQuery,
   useGetRelatedProductsQuery,
 } from '@/entities/product';
-import { ProductGallery } from '@/entities/product/ui/ProductGallery/ProductGallery.tsx';
-import { ProductInfo } from '@/entities/product/ui/ProductInfo/ProductInfo.tsx';
-import { ProductsList } from '@/entities/product/ui/ProductList/ProductList.tsx';
 import { DataLayout } from '@/widgets/DataLayout';
 import styles from './ProductPage.module.scss';
-import { ProductPageSkeleton } from '@/entities/product/ui/ProductPageSkeleton/ProductPageSkeleton.tsx';
 import { ErrorBlock, NotFoundBlock } from '@/shared/ui';
 import { routePaths } from '@/shared/config';
+import { ProductGallery, ProductInfo } from '@/widgets/Product';
 
 export const ProductPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -52,7 +51,7 @@ export const ProductPage = () => {
           title="Product not found"
           description="This product may have been removed or does not exist"
           actionText="Go to products"
-          onAction={() => navigate('/products')}
+          onAction={() => navigate(routePaths.products)}
         />
       </div>
     );
@@ -84,7 +83,7 @@ export const ProductPage = () => {
 
         {isRelatedLoading ? (
           <div className={styles.relatedSkeleton}>
-            <ProductPageSkeleton /> {/* можно сделать отдельный компактный */}
+            <ProductPageSkeleton />
           </div>
         ) : related && related.length > 0 ? (
           <div className={styles.products}>

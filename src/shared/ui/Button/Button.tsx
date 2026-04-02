@@ -10,10 +10,12 @@ type ButtonTheme =
   | 'ghost';
 
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type IconSide = 'left' | 'right';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   Icon?: ReactNode;
+  iconSide?: IconSide;
   className?: string;
   theme?: ButtonTheme;
   size?: ButtonSize;
@@ -22,6 +24,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = ({
   children,
   Icon,
+  iconSide = 'left',
   className,
   theme = 'primary',
   size = 'md',
@@ -36,8 +39,15 @@ export const Button = ({
       disabled={disabled}
       {...rest}
     >
-      {Icon && <span className={styles.iconWrapper}>{Icon}</span>}
+      {Icon && iconSide === 'left' && (
+        <span className={styles.iconWrapper}>{Icon}</span>
+      )}
+
       {children}
+
+      {Icon && iconSide === 'right' && (
+        <span className={styles.iconWrapper}>{Icon}</span>
+      )}
     </button>
   );
 };

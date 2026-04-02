@@ -1,7 +1,8 @@
 import { createContext } from 'react';
+import type { ToastVariantType } from '@/shared/ui';
 
 export interface ToastContextValue {
-  open: (content: string) => void;
+  open: (content: string, variant?: ToastVariantType) => void;
   close: () => void;
 }
 

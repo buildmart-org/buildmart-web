@@ -1,4 +1,4 @@
-import { MAX_PRODUCT_QTY } from '@/entities/product/model/consts/consts.ts';
+import { MAX_PRODUCT_QTY } from '@/entities/cart';
 
 export const validateQty = (
   value: string | number | undefined,

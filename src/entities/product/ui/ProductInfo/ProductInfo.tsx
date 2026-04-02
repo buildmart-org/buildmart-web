@@ -8,6 +8,7 @@ import { Button, Collapse, Input, Rating } from '@/shared/ui';
 import { ProductSpecs } from '@/entities/product/ui/ProductSpecs/ProductSpecs.tsx';
 import CartIcon from '@/shared/assets/icons/Cart.svg?react';
 import styles from './ProductInfo.module.scss';
+import { useAddToCart } from '@/features/addToCart';
 
 interface ProductInfoProps {
   product: Product;
@@ -15,6 +16,7 @@ interface ProductInfoProps {
 
 export const ProductInfo = ({ product }: ProductInfoProps) => {
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useAddToCart();
 
   return (
     <div className={styles.content}>
@@ -64,7 +66,12 @@ export const ProductInfo = ({ product }: ProductInfoProps) => {
       </div>
 
       <div className={styles.actionBtns}>
-        <Button theme="primary" size="xl" Icon={<CartIcon />}>
+        <Button
+          theme="primary"
+          size="xl"
+          Icon={<CartIcon />}
+          onClick={() => addToCart(product, quantity)}
+        >
           Add to Cart
         </Button>
         <Button theme="primary-outline" size="xl">

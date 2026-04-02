@@ -7,8 +7,8 @@ export const useAddToCart = () => {
   const dispatch = useAppDispatch();
   const { open } = useToast();
 
-  const addToCart = (product: Product) => {
-    dispatch(cartActions.addItem({ productId: product.id }));
+  const addToCart = (product: Product, amount: number = 1) => {
+    dispatch(cartActions.addItem({ productId: product.id, amount }));
     open(`Added ${product.title} to cart`, 'success');
   };
 

@@ -1,0 +1,23 @@
+.counter {
+  border-radius: var(--radius-lg);
+  background-color: var(--color-primary-ghost);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  fill: currentcolor;
+  padding: 2px;
+  min-width: 120px;
+  max-height: 40px;
+  justify-content: space-between;
+}
+
+.counter svg {
+  color: var(--color-primary);
+}
+
+.amount {
+  min-width: 24px;
+  text-align: center;
+  color: var(--color-primary);
+  font-weight: 500;
+}

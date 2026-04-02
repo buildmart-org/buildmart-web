@@ -45,17 +45,14 @@
   position: absolute;
   top: 50%;
   right: 12px;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.2s ease;
   pointer-events: none;
   display: flex;
   align-items: center;
   opacity: 0.7;
 }
 
-.chevron {
-  transition: transform 0.2s ease;
-}
-
-.wrapper.open .chevron {
+.open .chevron {
   transform: translateY(-50%) rotate(180deg);
 }

@@ -33,7 +33,10 @@ export const Select = <T extends string>({
   });
 
   return (
-    <div ref={wrapperRef} className={styles.wrapper}>
+    <div
+      ref={wrapperRef}
+      className={`${styles.wrapper} ${open ? styles.open : ''}`}
+    >
       <Button
         onClick={() => setOpen((s) => !s)}
         type="button"

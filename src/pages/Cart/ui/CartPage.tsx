@@ -49,9 +49,9 @@ export const CartPage = () => {
     return (
       <div className={styles.wrapper}>
         <NotFoundBlock
-          title="Product not found"
-          description="This product may have been removed or does not exist"
-          actionText="Go to products"
+          title="Your Cart is Empty"
+          description="Start shopping to add items to your cart"
+          actionText="Browse Products"
           onAction={() => navigate(routePaths.products)}
         />
       </div>

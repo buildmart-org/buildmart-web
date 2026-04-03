@@ -14,7 +14,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const handleNavigate = () => {
     navigate(`/product/${product.id}`);
   };
-
+  console.log(product);
   return (
     <div className={styles.card}>
       {/* IMAGE */}

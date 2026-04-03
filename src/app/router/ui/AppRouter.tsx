@@ -1,11 +1,20 @@
-import { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Suspense, useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { routesConfig } from '@/shared/config';
 import { PageLoader } from '@/widgets/PageLoader';
 import { AppLayout } from '@/app/layouts';
 import { NotFoundPage } from '@/pages/NotFound';
 
 export const AppRouter = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant',
+    });
+  }, [pathname]);
+
   return (
     <Routes>
       <Route element={<AppLayout />}>

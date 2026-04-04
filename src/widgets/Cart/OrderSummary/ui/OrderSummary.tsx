@@ -20,15 +20,6 @@ export const OrderSummary = (props: OrderSummaryProps) => {
   const { subtotal, tax, discount, total } = useAppSelector((state) =>
     selectCartSummarySelector(state, cart),
   );
-  // const subtotal = cart.reduce((acc, item) => {
-  //   return acc + item.total;
-  // }, 0);
-  //
-  // const tax = subtotal * 0.08;
-  // const discount = isPromocodeApplied
-  //   ? subtotal * appliedPromocode!.discount
-  //   : 0;
-  // const total = subtotal + tax - discount;
 
   const handleContinueShoppingClick = () => {
     navigate(routePaths.products);
@@ -50,7 +41,7 @@ export const OrderSummary = (props: OrderSummaryProps) => {
         {isPromocodeApplied && (
           <div>
             <span className={styles.success}>
-              Discount (${appliedPromocode!.discount})
+              Discount ({appliedPromocode!.discount}%)
             </span>
             <span className={styles.success}>{formatCurrency(discount)}</span>
           </div>

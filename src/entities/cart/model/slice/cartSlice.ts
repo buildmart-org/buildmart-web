@@ -1,10 +1,14 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { CartSchema } from '@/entities/cart/model/types/CartSchema.ts';
+import type {
+  ApplyPromocode,
+  CartSchema,
+} from '@/entities/cart/model/types/CartSchema.ts';
 import { MAX_PRODUCT_QTY } from '@/entities/cart';
 import { removeItemById } from '@/entities/cart/model/services/removeItem.ts';
 
 const initialState: CartSchema = {
   items: [],
+  promocode: null,
 };
 
 export const cartSlice = createSlice({
@@ -70,6 +74,12 @@ export const cartSlice = createSlice({
       }
 
       item.quantity = Math.min(nextQuantity, MAX_PRODUCT_QTY);
+    },
+    setPromocode(state, action: PayloadAction<ApplyPromocode | null>) {
+      state.promocode = action.payload;
+    },
+    clearPromocode(state) {
+      state.promocode = null;
     },
   },
 });

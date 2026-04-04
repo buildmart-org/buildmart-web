@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { routePaths } from '@/shared/config';
 import { formatCurrency } from '@/shared/lib';
 import type { CartDetailedItem } from '@/entities/cart/model/types/CartSchema.ts';
+import { usePromocode } from '@/features/applyPromo/model/hooks/usePromocode.ts';
+import { useAppSelector } from '@/shared/lib/redux/hooks.ts';
+import { selectCartSummarySelector } from '@/entities/cart/model/selectors/selectCartTotalsSelector.ts';
 
 interface OrderSummaryProps {
   cart: CartDetailedItem[];
@@ -12,15 +15,20 @@ interface OrderSummaryProps {
 
 export const OrderSummary = (props: OrderSummaryProps) => {
   const { cart } = props;
-
-  const subtotal = cart.reduce((acc, item) => {
-    console.log(item);
-    return acc + item.total;
-  }, 0);
-
-  const tax = subtotal * 0.08;
-  const total = subtotal + tax;
   const navigate = useNavigate();
+  const { isPromocodeApplied, appliedPromocode } = usePromocode();
+  const { subtotal, tax, discount, total } = useAppSelector((state) =>
+    selectCartSummarySelector(state, cart),
+  );
+  // const subtotal = cart.reduce((acc, item) => {
+  //   return acc + item.total;
+  // }, 0);
+  //
+  // const tax = subtotal * 0.08;
+  // const discount = isPromocodeApplied
+  //   ? subtotal * appliedPromocode!.discount
+  //   : 0;
+  // const total = subtotal + tax - discount;
 
   const handleContinueShoppingClick = () => {
     navigate(routePaths.products);
@@ -39,6 +47,14 @@ export const OrderSummary = (props: OrderSummaryProps) => {
           <span>Tax (8%)</span>
           <span>{formatCurrency(tax)}</span>
         </div>
+        {isPromocodeApplied && (
+          <div>
+            <span className={styles.success}>
+              Discount (${appliedPromocode!.discount})
+            </span>
+            <span className={styles.success}>{formatCurrency(discount)}</span>
+          </div>
+        )}
       </div>
 
       <div className={styles.totalRow}>

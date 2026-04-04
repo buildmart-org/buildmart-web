@@ -19,6 +19,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ButtonTheme;
   size?: ButtonSize;
+  disabled?: boolean;
 }
 
 export const Button = ({

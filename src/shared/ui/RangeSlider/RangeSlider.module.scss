@@ -16,16 +16,10 @@
 }
 
 .range {
-  background: #000;
+  position: absolute;
   height: 100%;
-
-  *[style] {
-    position: static !important;
-  }
-}
-
-.range {
-  background: red !important;
+  background: black;
+  border-radius: 999px;
 }
 
 .thumb {
@@ -36,6 +30,10 @@
   border: 1px solid #000;
   display: block;
   box-sizing: border-box;
+
+  &:active {
+    border: 2px solid #000;
+  }
 }
 
 .labels {

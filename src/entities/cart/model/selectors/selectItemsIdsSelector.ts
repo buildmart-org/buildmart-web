@@ -1,4 +1,9 @@
 import type { StateSchema } from '@/app/store';
+import { createSelector } from '@reduxjs/toolkit';
 
-export const selectItemsIdsSelector = (state: StateSchema) =>
-  state.cart.items.map((item) => item.productId);
+const selectCartItems = (state: StateSchema) => state.cart.items;
+
+export const selectItemsIdsSelector = createSelector(
+  [selectCartItems],
+  (items) => items.map((item) => item.productId),
+);

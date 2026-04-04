@@ -1,18 +1,14 @@
 import styles from './CartPage.module.scss';
 
-import {
-  CartTable,
-  OrderSummary,
-  PromoCode,
-  ShippingInfo,
-} from '@/widgets/Cart';
+import { CartTable, OrderSummary, ShippingInfo } from '@/widgets/Cart';
 import { useGetProductsQuery } from '@/entities/product';
 import { Button, ErrorBlock, InfoBlock } from '@/shared/ui';
 import { useNavigate } from 'react-router-dom';
 import { routePaths } from '@/shared/config';
-import { selectCartDetailedItems } from '@/entities/cart/model/selectors/selectCartDetailedITems.ts';
+import { selectCartDetailedItemsSelector } from '@/entities/cart/model/selectors/selectCartDetailedItemsSelector.ts';
 import { useAppSelector } from '@/shared/lib/redux/hooks.ts';
 import { CartPageSkeleton, selectItemsIdsSelector } from '@/entities/cart';
+import { ApplyPromoForm } from '@/features/applyPromo';
 
 export const CartPage = () => {
   const navigate = useNavigate();
@@ -26,7 +22,7 @@ export const CartPage = () => {
   );
 
   const cartDetailed = useAppSelector((state) =>
-    selectCartDetailedItems(state, data?.data ?? []),
+    selectCartDetailedItemsSelector(state, data?.data ?? []),
   );
 
   const cartEmpty = itemsIds.length === 0 || !data || data?.data.length === 0;
@@ -71,7 +67,7 @@ export const CartPage = () => {
       <div className={styles.grid}>
         <div className={styles.left}>
           <CartTable cart={cartDetailed} />
-          <PromoCode />
+          <ApplyPromoForm />
         </div>
 
         <div className={styles.right}>

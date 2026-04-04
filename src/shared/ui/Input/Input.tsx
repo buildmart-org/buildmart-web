@@ -2,6 +2,7 @@ import {
   type ChangeEvent,
   type InputHTMLAttributes,
   type ReactNode,
+  type Ref,
   useState,
 } from 'react';
 
@@ -20,6 +21,7 @@ interface InputProps extends HTMLInputType {
   disabled?: boolean;
   type?: string;
   theme?: InputThemeType;
+  ref?: Ref<HTMLInputElement>;
 }
 
 export const Input = (props: InputProps) => {
@@ -34,6 +36,7 @@ export const Input = (props: InputProps) => {
     disabled = false,
     theme = '',
     type = 'text',
+    ref,
     ...rest
   } = props;
 
@@ -68,6 +71,7 @@ export const Input = (props: InputProps) => {
         onBlur={handleBlur}
         onKeyDown={handleKeyDown}
         type={type}
+        ref={ref}
         className={clsx(styles.input, {
           [styles.disabled]: disabled,
         })}

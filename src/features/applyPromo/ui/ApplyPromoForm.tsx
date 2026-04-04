@@ -1,64 +1,43 @@
 import styles from './ApplyPromoForm.module.scss';
-import { Input, Button, useToast } from '@/shared/ui';
-import { cartActions } from '@/entities/cart/model/slice/cartSlice.ts';
-import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@/shared/lib/redux/hooks.ts';
-// import type { ApiDataError, RTKQueryError } from '@/shared/lib';
-import {
-  selectCartPromocodeSelector,
-  useApplyPromocodeMutation,
-} from '@/entities/order';
-import { transformPromocode } from '@/features/applyPromo/lib/transformPromocode.ts';
-import { validatePromocode } from '@/features/applyPromo/lib/validatePromocode.ts';
+import { Input, Button } from '@/shared/ui';
+
+import { usePromocode } from '@/features/applyPromo/model/hooks/usePromocode.ts';
 
 export const ApplyPromoForm = () => {
-  const dispatch = useAppDispatch();
-  const [applyPromo, { isLoading }] = useApplyPromocodeMutation();
-  const { open } = useToast();
-
-  const [draftPromocode, setDraftPromocode] = useState<string>('');
-  const appliedPromocode = useAppSelector(selectCartPromocodeSelector);
-  const appliedCode = appliedPromocode?.promocode ?? '';
-  const isApplied = Boolean(appliedCode);
-
-  const onApply = async () => {
-    const validPromo = validatePromocode(draftPromocode);
-
-    if (!validPromo) {
-      open('Enter a valid promo code', 'warning');
-      return;
-    }
-
-    const promo = await applyPromo({ promocode: validPromo }).unwrap();
-
-    dispatch(cartActions.setPromocode(promo));
-    open(`Promocode successfully applied`, 'success');
-  };
-
-  const onReset = () => {
-    setDraftPromocode('');
-    dispatch(cartActions.setPromocode(null));
-  };
+  const {
+    draftPromocode,
+    appliedPromocode,
+    appliedCode,
+    isPromocodeApplied,
+    isLoading,
+    inputRef,
+    onKeyDown,
+    onApply,
+    onReset,
+    onChange,
+  } = usePromocode();
 
   return (
     <div className={styles.promo}>
       <h3>Have a promo code?</h3>
       <div className={styles.row}>
         <Input
+          ref={inputRef}
+          onKeyDown={onKeyDown}
           value={appliedCode ? appliedCode : draftPromocode}
-          onChange={(value) => setDraftPromocode(transformPromocode(value))}
+          onChange={onChange}
           placeholder="Enter promo code"
-          disabled={isApplied}
+          disabled={isPromocodeApplied}
         />
-        <Button onClick={onApply} disabled={isApplied || isLoading}>
+        <Button onClick={onApply} disabled={isPromocodeApplied || isLoading}>
           {isLoading ? 'Applying...' : 'Apply'}
         </Button>
         <Button theme={'primary-outline'} onClick={onReset}>
           Reset
         </Button>
       </div>
-      {isApplied && (
-        <p className={styles.applied}>
+      {isPromocodeApplied && (
+        <p className={styles.success}>
           Promo code "{appliedCode}" applied. You saved{' '}
           {appliedPromocode?.discount}%
         </p>

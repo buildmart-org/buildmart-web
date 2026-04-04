@@ -1,5 +1,5 @@
 import { useAppSelector } from '@/shared/lib/redux/hooks';
-import { selectCartItemQty } from '@/entities/cart/model/selectors/selectCartItemQty';
+import { selectCartItemQtySelector } from '@/entities/cart/model/selectors/selectCartItemQtySelector.ts';
 import { Button } from '@/shared/ui';
 import { useAddToCart } from '@/features/addToCart';
 import type { Product } from '@/entities/product';
@@ -15,7 +15,7 @@ interface Props {
 export const AddToCartDetails = ({ product, quantity }: Props) => {
   const { addToCart } = useAddToCart();
 
-  const qtyInCart = useAppSelector(selectCartItemQty(product.id));
+  const qtyInCart = useAppSelector(selectCartItemQtySelector(product.id));
 
   return (
     <Button

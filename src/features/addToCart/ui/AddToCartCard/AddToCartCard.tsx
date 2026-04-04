@@ -4,7 +4,7 @@ import PlusIcon from '@/shared/assets/icons/Plus.svg?react';
 
 import MinusIcon from '@/shared/assets/icons/Minus.svg?react';
 import styles from './AddToCartCard.module.scss';
-import { selectCartItemQty } from '@/entities/cart/model/selectors/selectCartItemQty.ts';
+import { selectCartItemQtySelector } from '@/entities/cart/model/selectors/selectCartItemQtySelector.ts';
 import { Button } from '@/shared/ui';
 import { useAddToCart } from '@/features/addToCart';
 import { useCartActions } from '@/features/cartManagement/model/hooks/useCartActions.ts';
@@ -16,7 +16,7 @@ interface Props {
 export const AddToCartCard = ({ product }: Props) => {
   const { increment, decrement } = useCartActions();
   const { addToCart } = useAddToCart();
-  const cartItemQty = useAppSelector(selectCartItemQty(product.id));
+  const cartItemQty = useAppSelector(selectCartItemQtySelector(product.id));
 
   if (!cartItemQty) {
     return <Button onClick={() => addToCart(product)}>Add to cart</Button>;

@@ -1,7 +1,7 @@
 import type { StateSchema } from '@/app/store';
 import type { Product } from '@/entities/product';
 
-export const selectCartDetailedItems = (
+export const selectCartDetailedItemsSelector = (
   state: StateSchema,
   products: Product[],
 ) => {
@@ -11,7 +11,6 @@ export const selectCartDetailedItems = (
 
   return products.map((product) => {
     const quantity = cartMap.get(product.id)?.quantity ?? 0;
-    console.log(product.price * quantity);
     return {
       product,
       quantity,

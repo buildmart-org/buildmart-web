@@ -14,7 +14,6 @@ export const OrderSummary = (props: OrderSummaryProps) => {
   const { cart } = props;
 
   const subtotal = cart.reduce((acc, item) => {
-    console.log(item);
     return acc + item.total;
   }, 0);
 

@@ -1,6 +1,6 @@
 import type { Product } from '@/entities/product';
 
-export interface Cart {
+export interface CartItem {
   productId: string;
   quantity: number;
 }
@@ -11,6 +11,13 @@ export interface CartDetailedItem {
   total: number;
 }
 
+export interface ApplyPromocode {
+  promocode: string;
+  discount: number; // percent
+  isActive: boolean;
+}
+
 export interface CartSchema {
-  items: Cart[];
+  items: CartItem[];
+  promocode: ApplyPromocode | null;
 }

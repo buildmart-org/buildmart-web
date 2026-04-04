@@ -5,7 +5,8 @@ import { selectCartItemsSelector } from '@/entities/cart/model/selectors/selectC
 import { removeItemById } from '@/entities/cart/model/services/removeItem.ts';
 import { loadCart } from '@/entities/cart/model/services/loadCart.ts';
 import type {
-  Cart,
+  ApplyPromocode,
+  CartItem,
   CartSchema,
 } from '@/entities/cart/model/types/CartSchema.ts';
 import { CartPageSkeleton } from '@/entities/cart/ui/CartPageSkeleton.tsx';
@@ -19,4 +20,4 @@ export {
   selectCartItemsSelector,
   selectItemsIdsSelector,
 };
-export type { CartSchema, Cart };
+export type { CartSchema, CartItem, ApplyPromocode };

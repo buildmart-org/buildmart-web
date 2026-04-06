@@ -1,3 +1,5 @@
+@use '@/app/styles/globals' as *;
+
 .summary {
   h2 {
     text-align: left;
@@ -11,6 +13,7 @@
   position: sticky;
   top: 24px;
   z-index: 10;
+  order: 1;
 }
 
 .lines {
@@ -64,4 +67,11 @@
 
 .continue {
   width: 100%;
+}
+
+@media (max-width: $tablet) {
+  .summary {
+    order: 2;
+    position: static;
+  }
 }

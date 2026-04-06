@@ -1,7 +1,22 @@
+@use '@/app/styles/globals' as *;
+
 .grid {
   display: grid;
   width: 100%;
   gap: 24px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
+}
+
+@media (max-width: $tablet) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: $mobile-sm) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }

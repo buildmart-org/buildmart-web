@@ -1,0 +1,38 @@
+@use '@/app/styles/globals' as *;
+
+.mobileMenu {
+  display: none;
+  width: 100%;
+  background: var(--color-bg);
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobileSearchInput {
+  margin-bottom: 16px;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mobileNav a {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: $mobile) {
+  .mobileMenu.open {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+  }
+}

@@ -6,12 +6,9 @@ import ChevronRight from '@/shared/assets/icons/ChevronRight.svg?react';
 
 interface HorizontalCarouselProps {
   children: React.ReactNode;
-  itemsToShow?: number;
 }
-export const HorizontalCarousel = ({
-  children,
-  itemsToShow = 4,
-}: HorizontalCarouselProps) => {
+
+export const HorizontalCarousel = ({ children }: HorizontalCarouselProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -28,6 +25,7 @@ export const HorizontalCarousel = ({
       behavior: 'smooth',
     });
   };
+
   return (
     <div className={styles.wrapper}>
       <Button
@@ -37,15 +35,7 @@ export const HorizontalCarousel = ({
         Icon={<ChevronLeft />}
       />
 
-      <div
-        ref={ref}
-        className={styles.container}
-        style={
-          {
-            '--items': itemsToShow,
-          } as React.CSSProperties
-        }
-      >
+      <div ref={ref} className={styles.container}>
         {children}
       </div>
 

@@ -1,3 +1,7 @@
+@use '@/app/styles/globals' as *;
+
+/* ================= HEADER ================= */
+
 .header {
   width: 100%;
   border-bottom: 1px solid var(--color-border);
@@ -7,13 +11,18 @@
   z-index: 1000;
 }
 
+/* ================= WRAPPER ================= */
+
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 80px;
   gap: 32px;
+  width: 100%;
 }
+
+/* ================= LOGO ================= */
 
 .logo {
   display: flex;
@@ -33,6 +42,8 @@
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
 }
+
+/* ================= NAV ================= */
 
 .nav {
   display: flex;
@@ -55,24 +66,17 @@
   max-width: 460px;
 }
 
-.cartWrapper {
-  position: relative;
-  display: inline-flex;
+/* ================= BREAKPOINTS ================= */
+
+@media (max-width: $tablet) {
+  .logoText {
+    display: none;
+  }
 }
 
-.cart {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: var(--radius-md);
-  color: var(--color-text-secondary);
-  transition:
-    background var(--transition-fast),
-    color var(--transition-fast);
-}
-
-.cart:hover {
-  color: var(--color-primary);
+@media (max-width: $mobile) {
+  .nav,
+  .search {
+    display: none;
+  }
 }

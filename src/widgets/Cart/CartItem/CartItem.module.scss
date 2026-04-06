@@ -1,3 +1,5 @@
+@use '@/app/styles/globals' as *;
+
 .item {
   display: grid;
   grid-template-columns: 6fr 2fr 2fr 2fr;
@@ -32,6 +34,18 @@
   color: var(--color-text-secondary);
 }
 
+.label {
+  display: none;
+}
+
+.priceRow {
+  display: contents;
+}
+
+.priceBlock {
+  text-align: center;
+}
+
 .qty {
   display: flex;
   align-items: center;
@@ -56,10 +70,20 @@
 }
 
 .total {
-  font-weight: 700;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 12px;
+}
+
+.totalInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.totalValue {
+  font-weight: 700;
 }
 
 .trash {
@@ -68,4 +92,71 @@
   color: var(--color-danger);
   width: 16px;
   height: 16px;
+}
+
+.removeMobile {
+  display: none;
+}
+
+@media (max-width: $mobile-sm) {
+  .item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .product {
+    align-items: flex-start;
+  }
+
+  .removeMobile {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-danger);
+    font-size: 14px;
+    margin-top: 6px;
+    cursor: pointer;
+  }
+
+  .label {
+    display: block;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+  }
+
+  .priceRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .priceBlock {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .price {
+    text-align: left;
+  }
+
+  .qty {
+    justify-content: flex-end;
+  }
+
+  .total {
+    padding-top: 10px;
+    border-top: 1px dashed var(--color-border);
+    justify-content: space-between;
+  }
+
+  .totalInfo {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .trashDesktop {
+    display: none;
+  }
 }

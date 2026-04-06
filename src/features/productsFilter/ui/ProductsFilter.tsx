@@ -77,18 +77,20 @@ export const ProductFilters = (props: ProductFiltersProps) => {
       </div>
 
       <div className={styles.section}>
-        <span className={styles.title}>Category</span>
-        <Select
-          value={draftFilters.category ?? ''}
-          placeholder={'Select'}
-          options={categoryOptions}
-          onChange={(value) =>
-            setDraftFilters({
-              ...draftFilters,
-              category: value || undefined,
-            })
-          }
-        />
+        <div className={styles.category}>
+          <span className={styles.title}>Category</span>
+          <Select
+            value={draftFilters.category ?? ''}
+            placeholder={'Select'}
+            options={categoryOptions}
+            onChange={(value) =>
+              setDraftFilters({
+                ...draftFilters,
+                category: value || undefined,
+              })
+            }
+          />
+        </div>
       </div>
 
       {/* Actions */}

@@ -4,6 +4,14 @@
   display: none;
   width: 100%;
   background: var(--color-bg);
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .mobileSearchInput {
@@ -13,7 +21,7 @@
 .mobileNav {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .mobileNav a {
@@ -22,14 +30,6 @@
 }
 
 @media (max-width: $mobile) {
-  .mobileMenu {
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .mobileMenu {
-    display: none;
-  }
-
   .mobileMenu.open {
     display: flex;
     flex-direction: column;

@@ -1,12 +1,14 @@
+@use '@/app/styles/globals' as *;
+
 .shipping {
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-top: 24px;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 24px;
+  order: 2;
 }
 
 .item {
@@ -31,4 +33,10 @@
 .value {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
+}
+
+@media (max-width: $tablet) {
+  .shipping {
+    order: 1;
+  }
 }

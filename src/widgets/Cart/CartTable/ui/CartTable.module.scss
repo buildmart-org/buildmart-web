@@ -1,3 +1,5 @@
+@use '@/app/styles/globals' as *;
+
 .cartBox {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
@@ -26,4 +28,10 @@
 .items {
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: $mobile-sm) {
+  .headerRow {
+    display: none;
+  }
 }

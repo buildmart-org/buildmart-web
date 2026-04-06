@@ -38,9 +38,8 @@
   display: none;
 }
 
-/* 🔥 НОВОЕ */
 .priceRow {
-  display: contents; // desktop — как будто ничего не изменилось
+  display: contents;
 }
 
 .priceBlock {
@@ -99,8 +98,6 @@
   display: none;
 }
 
-/* ================= MOBILE ================= */
-
 @media (max-width: $mobile-sm) {
   .item {
     grid-template-columns: 1fr;
@@ -128,7 +125,6 @@
     color: var(--color-text-secondary);
   }
 
-  /* 🔥 ГЛАВНОЕ */
   .priceRow {
     display: flex;
     justify-content: space-between;

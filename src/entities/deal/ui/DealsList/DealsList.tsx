@@ -12,8 +12,8 @@ export const DealsList = (props: DealsListProps) => {
   const { deals } = props;
 
   return deals?.map((deal: Deal) => (
-    <div className={styles.item}>
-      <DealCard key={deal.id} deal={deal} />
+    <div className={styles.item} key={deal.id}>
+      <DealCard deal={deal} />
 
       <div className={styles.products}>
         <DataLayout mode={'horizontal-carousel'}>

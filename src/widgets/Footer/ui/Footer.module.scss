@@ -1,3 +1,5 @@
+@use '@/app/styles/globals' as *;
+
 .footer {
   background: var(--color-footer-bg);
   color: var(--color-text-white-muted);
@@ -99,14 +101,14 @@
   color: var(--color-text-white-muted);
 }
 
-@media (width <= 1024px) {
+@media (max-width: $tablet) {
   .column {
     flex: 1 1 calc(50% - 32px);
     min-width: unset;
   }
 }
 
-@media (width <= 768px) {
+@media (max-width: $mobile) {
   .top {
     flex-direction: column;
   }

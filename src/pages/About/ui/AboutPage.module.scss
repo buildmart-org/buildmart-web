@@ -1,3 +1,5 @@
+@use '@/app/styles/globals' as *;
+
 .wrapper {
   padding: var(--top-margin) 0;
 }
@@ -32,7 +34,7 @@
   text-align: center;
 }
 
-/* STORY + CONTACT (как card, но без hover) */
+/* STORY + CONTACT (card) */
 
 .block {
   border: 1px solid var(--color-border);
@@ -51,8 +53,7 @@
 
 .values {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 280px));
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -83,7 +84,7 @@
 
 .contacts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-top: 20px;
 
@@ -97,5 +98,58 @@
 
   p {
     margin: 4px 0;
+  }
+}
+
+@media (max-width: $tablet) {
+  .section {
+    margin-bottom: 36px;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+  }
+
+  .values {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contacts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .block {
+    padding: 24px;
+  }
+}
+
+@media (max-width: $mobile) {
+  .wrapper {
+    padding: calc(var(--top-margin) / 1.5) 0;
+  }
+
+  .hero {
+    margin-bottom: 28px;
+  }
+
+  .section {
+    margin-bottom: 28px;
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+  }
+
+  .values {
+    grid-template-columns: 1fr;
+  }
+
+  .contacts {
+    grid-template-columns: 1fr;
+  }
+
+  .block {
+    padding: 16px;
+    text-align: left;
   }
 }

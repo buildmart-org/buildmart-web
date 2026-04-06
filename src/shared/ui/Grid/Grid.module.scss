@@ -14,7 +14,7 @@
   }
 }
 
-@media (max-width: $mobile) {
+@media (max-width: $mobile-sm) {
   .grid {
     grid-template-columns: 1fr;
     gap: 16px;

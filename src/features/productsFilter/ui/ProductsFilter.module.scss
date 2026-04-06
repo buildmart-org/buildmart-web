@@ -1,3 +1,5 @@
+@use '@/app/styles/globals' as *;
+
 .wrapper {
   margin-top: 16px;
   padding: 16px;
@@ -29,8 +31,26 @@
   flex: 1;
 }
 
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .actions {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
+  width: 100%;
+  max-width: 280px;
+}
+
+@media (max-width: $mobile) {
+  .actions button {
+    width: 100%;
+  }
+
+  .category {
+    max-width: 100%;
+  }
 }

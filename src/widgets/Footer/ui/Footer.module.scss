@@ -1,10 +1,10 @@
+@use '@/app/styles/globals' as *;
+
 .footer {
   background: var(--color-footer-bg);
   color: var(--color-text-white-muted);
   padding: 60px 0;
 }
-
-/* ---------- TOP ---------- */
 
 .top {
   display: flex;
@@ -14,12 +14,9 @@
   border-bottom: 1px solid var(--footer-separator);
 }
 
-/* ---------- COLUMN ---------- */
-
 .column {
-  flex: 1 1 180px;
-  font-size: var(--font-size-sm);
-  min-width: 150px;
+  flex: 1 1 220px;
+  min-width: 220px;
 }
 
 .logoText,
@@ -49,15 +46,11 @@
   font-size: var(--font-size-sm);
 }
 
-/* ---------- SOCIAL ---------- */
-
 .socials {
   display: flex;
   gap: 8px;
   margin-top: 8px;
 }
-
-/* ---------- NEWSLETTER ---------- */
 
 .newsletter {
   display: flex;
@@ -68,16 +61,12 @@
   padding: 0 16px;
 }
 
-/* ---------- BOTTOM ---------- */
-
 .bottom {
   display: flex;
   flex-direction: column;
   gap: 32px;
   margin-top: 32px;
 }
-
-/* ---------- CONTACTS ---------- */
 
 .contacts {
   display: flex;
@@ -106,10 +95,33 @@
   color: var(--color-text-white-muted);
 }
 
-/* ---------- COPYRIGHT ---------- */
-
 .copyright {
   text-align: center;
   font-size: var(--font-size-sm);
   color: var(--color-text-white-muted);
+}
+
+@media (max-width: $tablet) {
+  .column {
+    flex: 1 1 calc(50% - 32px);
+    min-width: unset;
+  }
+}
+
+@media (max-width: $mobile) {
+  .top {
+    flex-direction: column;
+  }
+
+  .column {
+    flex: 1 1 100%;
+  }
+
+  .contacts {
+    flex-direction: column;
+  }
+
+  .contactColumn {
+    flex: 1 1 100%;
+  }
 }

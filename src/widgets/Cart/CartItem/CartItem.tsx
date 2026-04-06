@@ -31,37 +31,60 @@ export const CartItem = memo((props: CartItemProps) => {
           </a>
 
           <p className={styles.category}>{product.category.title}</p>
+
+          <button
+            className={styles.removeMobile}
+            onClick={() => remove(product.id)}
+          >
+            <Trash className={styles.trash} />
+            Remove
+          </button>
         </div>
       </div>
 
-      <div className={styles.price}>{formatCurrency(product.price)}</div>
+      {/* PRICE + QTY (объединено) */}
+      <div className={styles.priceRow}>
+        <div className={styles.priceBlock}>
+          <span className={styles.label}>Price:</span>
+          <span className={styles.price}>{formatCurrency(product.price)}</span>
+        </div>
 
-      <div className={styles.qty}>
-        <Button
-          onClick={() => decrement(product.id)}
-          className={styles.qtyBtn}
-          theme="ghost"
-          size="sm"
-        >
-          −
-        </Button>
+        <div className={styles.qty}>
+          <Button
+            onClick={() => decrement(product.id)}
+            className={styles.qtyBtn}
+            theme="ghost"
+            size="sm"
+          >
+            −
+          </Button>
 
-        <span>{item.quantity ?? 0}</span>
+          <span>{item.quantity ?? 0}</span>
 
-        <Button
-          onClick={() => increment(product.id)}
-          className={styles.qtyBtn}
-          theme="ghost"
-          size="sm"
-        >
-          +
-        </Button>
+          <Button
+            onClick={() => increment(product.id)}
+            className={styles.qtyBtn}
+            theme="ghost"
+            size="sm"
+          >
+            +
+          </Button>
+        </div>
       </div>
 
+      {/* TOTAL */}
       <div className={styles.total}>
-        <span>{formatCurrency(item.total)}</span>
+        <div className={styles.totalInfo}>
+          <span className={styles.label}>Total:</span>
+          <span className={styles.totalValue}>
+            {formatCurrency(item.total)}
+          </span>
+        </div>
 
-        <button onClick={() => remove(product.id)}>
+        <button
+          className={styles.trashDesktop}
+          onClick={() => remove(product.id)}
+        >
           <Trash className={styles.trash} />
         </button>
       </div>

@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 8px;
+
+  > span {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}

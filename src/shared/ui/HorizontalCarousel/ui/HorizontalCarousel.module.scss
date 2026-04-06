@@ -1,3 +1,8 @@
+$desktop: 1280px;
+$tablet: 1024px;
+$mobile: 768px;
+$mobile-sm: 640px;
+
 .wrapper {
   position: relative;
 }
@@ -13,7 +18,25 @@
   }
 
   > * {
-    flex: 0 0 calc((100% - (var(--items) - 1) * 16px) / var(--items));
+    flex: 0 0 100%;
+  }
+
+  @media (min-width: $mobile) {
+    > * {
+      flex: 0 0 calc((100% - 16px) / 2);
+    }
+  }
+
+  @media (min-width: $tablet) {
+    > * {
+      flex: 0 0 calc((100% - 2 * 16px) / 3);
+    }
+  }
+
+  @media (min-width: $desktop) {
+    > * {
+      flex: 0 0 calc((100% - 3 * 16px) / 4);
+    }
   }
 }
 

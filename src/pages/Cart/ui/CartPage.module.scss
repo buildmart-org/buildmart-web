@@ -1,3 +1,5 @@
+@use '@/app/styles/globals' as *;
+
 .wrapper {
   padding: var(--top-margin) 0;
 }
@@ -23,5 +25,19 @@
 }
 
 .right {
+  display: flex;
+  flex-direction: column;
   text-align: right;
+  gap: 24px;
+}
+
+@media (max-width: $tablet) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .right {
+    text-align: left;
+  }
 }
